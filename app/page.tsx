@@ -4,6 +4,7 @@ import { FaqSection } from "@/components/faq-section";
 import { TrustSection } from "@/components/trust-section";
 import { WhatsAppMockup, BilanApercu } from "@/components/hero-mockups";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { WealthSeal } from "@/components/wealth-seal";
 
 // Contenu source : Figma Make (figma.com/make/sh6K53CdXkJl0eAR5D7Vf0) + PRD 3
 // Messaging & Value Prop (patrimoine repo). Refonte design v2 — passe
@@ -267,7 +268,7 @@ export default function Home() {
               pas une alternance systématique clair/sombre par section. */}
           <section className="grain-paper border-t border-rule bg-seal">
             <ScrollReveal className="relative mx-auto max-w-2xl px-6 py-24 text-center lg:py-28">
-              <span className="gold-rule mx-auto mb-8" aria-hidden />
+              <WealthSeal className="mb-8" />
               <h2 className="text-display-lg mb-6 font-display text-seal-paper">
                 Votre cabinet mérite un collaborateur, pas un logiciel de plus
               </h2>
