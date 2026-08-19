@@ -47,8 +47,8 @@ export function TrustSection() {
         {/* Annexe à appels de note — filets fins, pas de folio oversize */}
         <ol className="divide-y divide-rule border-y border-rule">
           {PILLARS.map((p, i) => (
-            <ScrollReveal key={p.title} delayMs={i * 70}>
-              <li className="grid gap-2 py-7 sm:grid-cols-12 sm:gap-8">
+            <li key={p.title}>
+              <ScrollReveal delayMs={i * 70} className="grid gap-2 py-7 sm:grid-cols-12 sm:gap-8">
                 <p className="sm:col-span-1">
                   <span className="footnote-mark font-display text-base text-gold-ink">{i + 1}</span>
                 </p>
@@ -60,8 +60,8 @@ export function TrustSection() {
                     {p.desc}
                   </p>
                 </div>
-              </li>
-            </ScrollReveal>
+              </ScrollReveal>
+            </li>
           ))}
         </ol>
 

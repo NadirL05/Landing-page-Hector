@@ -22,7 +22,7 @@ export function WhatsAppMockup() {
         <div className="flex h-8 w-8 items-center justify-center rounded-full border border-rule-strong font-display text-sm italic text-ink">H</div>
         <div>
           <p className="text-sm font-medium text-ink">Hector</p>
-          <p className="text-xs text-ink-faint">en ligne</p>
+          <p className="text-xs text-ink-soft">en ligne</p>
         </div>
       </div>
       <div className="min-h-[240px] space-y-2 bg-paper px-3 py-4">
