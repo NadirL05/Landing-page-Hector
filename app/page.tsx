@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
+import softwareApplicationSchema from "@/public/schema/software-application.json";
 import { FaqSection } from "@/components/faq-section";
 import { TrustSection } from "@/components/trust-section";
 import { WhatsAppMockup, BilanApercu } from "@/components/hero-mockups";
@@ -53,7 +54,7 @@ const TARIFS = [
 export default function Home() {
   return (
     <>
-      <JsonLd src="/schema/software-application.json" />
+      <JsonLd data={softwareApplicationSchema} />
       <div className="min-h-screen bg-paper">
         {/* ===== MASTHEAD =====
             En-tête de courrier, pas une nav-bar SaaS : wordmark en petites

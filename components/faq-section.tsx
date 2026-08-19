@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { JsonLd } from "@/components/json-ld";
+import faqSchema from "@/public/schema/faq.json";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 // Garder ce tableau synchronisé avec public/schema/faq.json (JSON-LD
-// externalisé — voir components/json-ld.tsx pour le pourquoi).
+// injecté inline — voir components/json-ld.tsx pour le pourquoi).
 const FAQS = [
   {
     q: "Encore un outil à apprendre ?",
@@ -30,7 +31,7 @@ export function FaqSection() {
 
   return (
     <section className="border-t border-rule" id="faq">
-      <JsonLd src="/schema/faq.json" />
+      <JsonLd data={faqSchema} />
       <div className="mx-auto max-w-3xl px-safe py-24 lg:py-28">
         <ScrollReveal className="mb-12 max-w-xl">
           <p className="letter-kicker mb-3 text-ink-faint">Questions fréquentes</p>

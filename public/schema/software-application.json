@@ -9,7 +9,29 @@
   "description": "Hector consolide le suivi patrimonial d'un cabinet de gestion de patrimoine, déclenche relances et rapprochements, et livre le travail fini via WhatsApp.",
   "inLanguage": "fr",
   "offers": [
-    { "@type": "Offer", "name": "Mensuel", "price": "149", "priceCurrency": "EUR", "billingIncrement": "P1M" },
-    { "@type": "Offer", "name": "Annuel", "price": "1490", "priceCurrency": "EUR", "billingIncrement": "P1Y" }
+    {
+      "@type": "Offer",
+      "name": "Mensuel",
+      "price": "149",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "149",
+        "priceCurrency": "EUR",
+        "billingDuration": "P1M"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Annuel",
+      "price": "1490",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "1490",
+        "priceCurrency": "EUR",
+        "billingDuration": "P1Y"
+      }
+    }
   ]
 }
