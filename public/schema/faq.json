@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Encore un outil à apprendre ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non — Hector se pilote depuis WhatsApp, une interface que vous utilisez déjà. Pas de nouveau dashboard à mémoriser, pas de formation longue : vous lui parlez comme à un collaborateur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mes données sont sensibles, comment sont-elles protégées ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet dispose d'un accès isolé. Aucune décision d'investissement n'est prise automatiquement — Hector prépare, vous validez toujours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "J'ai déjà Harvest, à quoi bon Hector ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hector ne remplace pas Harvest, il se branche dessus. Il ajoute la couche conversationnelle et proactive : relances automatiques, bilans instantanés, alertes — ce que votre logiciel actuel ne fait pas seul."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hector est-il déjà disponible ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hector est en phase de construction avec un nombre restreint de cabinets pilotes. Réservez une démonstration pour être prioritaire à l'ouverture et influencer les premières fonctionnalités livrées."
+      }
+    }
+  ]
+}
