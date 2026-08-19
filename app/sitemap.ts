@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 
-// Landing mono-page : une seule route réelle. Les ancres (#confiance,
-// #tarifs) ne sont pas des routes distinctes et ne doivent pas apparaître
-// dans le sitemap.
+// Landing + pages légales : les ancres (#confiance, #tarifs) ne sont pas
+// des routes distinctes et ne doivent pas apparaître dans le sitemap.
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -10,6 +9,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: "https://hector.agentimpact.fr/mentions-legales",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: "https://hector.agentimpact.fr/confidentialite",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
     },
   ];
 }
