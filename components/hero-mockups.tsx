@@ -1,6 +1,11 @@
 // Aperçus visuels du hero — conversation WhatsApp + bilan patrimonial.
 // Toute donnée chiffrée ici est un exemple illustratif explicitement
 // labellisé, jamais une donnée client réelle (produit pas encore en ligne).
+//
+// Présentés dans page.tsx comme des planches de rapport encadrées
+// ("Fig. 1", "Fig. 2"), pas comme un collage de cartes pivotées qui se
+// chevauchent — le composant reste volontairement sobre, sans chrome
+// sombre ni lueur, pour rester cohérent avec le canvas papier.
 
 const MESSAGES = [
   { from: "cgp", text: "Hector, peux-tu préparer le bilan patrimonial de M. Dupont pour jeudi ?", time: "09:14" },
@@ -12,26 +17,26 @@ const MESSAGES = [
 
 export function WhatsAppMockup() {
   return (
-    <div className="mx-auto w-full max-w-xs overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface shadow-2xl shadow-black/40">
-      <div className="flex items-center gap-3 bg-ink-900 px-4 py-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/20 font-display text-sm text-gold-300">H</div>
+    <div className="mx-auto w-full overflow-hidden rounded-[var(--radius-card)] border border-rule bg-paper">
+      <div className="flex items-center gap-3 border-b border-rule bg-paper-deep px-4 py-3">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-rule-strong font-display text-sm italic text-ink">H</div>
         <div>
-          <p className="text-sm font-medium text-surface">Hector</p>
-          <p className="text-xs text-ink-muted-dark">en ligne</p>
+          <p className="text-sm font-medium text-ink">Hector</p>
+          <p className="text-xs text-ink-faint">en ligne</p>
         </div>
       </div>
-      <div className="min-h-[280px] space-y-2 bg-surface-alt px-3 py-4">
+      <div className="min-h-[240px] space-y-2 bg-paper px-3 py-4">
         {MESSAGES.map((m, i) => (
           <div key={i} className={`flex ${m.from === "cgp" ? "justify-end" : "justify-start"}`}>
             <div
-              className={`max-w-[80%] rounded-[var(--radius-card)] px-3 py-2 text-xs leading-relaxed ${
+              className={`max-w-[80%] rounded-[var(--radius-card)] border px-3 py-2 text-xs leading-relaxed ${
                 m.from === "cgp"
-                  ? "rounded-tr-sm bg-ink-900 text-surface"
-                  : "rounded-tl-sm bg-white text-ink shadow-sm"
+                  ? "border-ink bg-ink text-paper"
+                  : "border-rule bg-paper-alt text-ink"
               }`}
             >
               <p className="whitespace-pre-line">{m.text}</p>
-              <p className={`mt-1 text-right text-[10px] ${m.from === "cgp" ? "text-ink-muted-dark" : "text-ink-muted"}`}>{m.time}</p>
+              <p className={`mt-1 text-right text-[10px] ${m.from === "cgp" ? "text-paper-deep" : "text-ink-faint"}`}>{m.time}</p>
             </div>
           </div>
         ))}
@@ -42,10 +47,11 @@ export function WhatsAppMockup() {
 
 const SPARK_POINTS = [42, 38, 50, 45, 58, 54, 62, 60, 71, 68, 74, 78];
 const ALLOCATION = [
-  { label: "Assurance-vie", pct: 52, className: "bg-gold" },
-  { label: "PEA", pct: 28, className: "bg-emerald" },
-  { label: "Immobilier SC", pct: 20, className: "bg-ink-muted" },
+  { label: "Assurance-vie", className: "bg-ink" },
+  { label: "PEA", className: "bg-gold" },
+  { label: "Immobilier SC", className: "bg-ink-faint" },
 ] as const;
+const ALLOCATION_PCT = [52, 28, 20] as const;
 
 export function BilanApercu() {
   const maxV = Math.max(...SPARK_POINTS);
@@ -57,13 +63,13 @@ export function BilanApercu() {
     .join(" ");
 
   return (
-    <div className="mx-auto w-full max-w-xs rounded-[var(--radius-card)] border border-line bg-white p-5 shadow-2xl shadow-black/30">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="mx-auto w-full rounded-[var(--radius-card)] border border-rule bg-paper p-5">
+      <div className="mb-4 flex items-center justify-between border-b border-rule pb-3">
         <div>
-          <p className="font-display text-xs italic text-ink-muted">Bilan patrimonial</p>
+          <p className="letter-kicker text-ink-faint">Bilan patrimonial</p>
           <p className="text-sm font-semibold text-ink">M. et Mme Dupont</p>
         </div>
-        <span className="rounded-[var(--radius-pill)] border border-gold-100 bg-gold-50 px-2 py-1 text-[10px] font-medium text-gold-600">
+        <span className="rounded-[var(--radius-btn)] border border-rule-strong px-2 py-1 text-[10px] font-medium text-ink-faint">
           Exemple illustratif
         </span>
       </div>
@@ -73,36 +79,29 @@ export function BilanApercu() {
           { label: "Rendement YTD", val: "+4,7 %" },
           { label: "Supports", val: "4" },
         ].map((kpi) => (
-          <div key={kpi.label} className="rounded-[var(--radius-card)] bg-surface-alt p-3 text-center">
-            <p className="mb-1 text-[11px] leading-tight text-ink-muted">{kpi.label}</p>
+          <div key={kpi.label} className="border border-rule p-3 text-center">
+            <p className="mb-1 text-[11px] leading-tight text-ink-faint">{kpi.label}</p>
             <p className="tabular text-sm font-semibold text-ink">{kpi.val}</p>
           </div>
         ))}
       </div>
       <div className="mb-3">
         <div className="mb-2 flex items-center justify-between">
-          <p className="text-[11px] font-medium text-ink-muted">Valorisation 12 mois</p>
-          <p className="tabular text-[11px] font-semibold text-emerald">+78 k€</p>
+          <p className="text-[11px] font-medium text-ink-faint">Valorisation 12 mois</p>
+          <p className="tabular text-[11px] font-semibold text-emerald-ink">+78 k€</p>
         </div>
         <svg viewBox={`0 0 ${w} ${h}`} className="h-12 w-full" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="oklch(74% 0.12 85)" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="oklch(74% 0.12 85)" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <polygon points={`0,${h} ${pts} ${w},${h}`} fill="url(#sparkGrad)" />
-          <polyline points={pts} fill="none" stroke="oklch(62% 0.13 78)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <polyline points={pts} fill="none" stroke="var(--color-ink-soft)" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
       <div className="space-y-2">
-        {ALLOCATION.map((item) => (
+        {ALLOCATION.map((item, i) => (
           <div key={item.label} className="flex items-center gap-2">
-            <p className="w-24 shrink-0 text-[11px] text-ink-muted">{item.label}</p>
-            <div className="h-1.5 flex-1 overflow-hidden rounded-[var(--radius-pill)] bg-surface-alt">
-              <div className={`h-full rounded-[var(--radius-pill)] ${item.className}`} style={{ width: `${item.pct}%` }} />
+            <p className="w-24 shrink-0 text-[11px] text-ink-faint">{item.label}</p>
+            <div className="h-1.5 flex-1 overflow-hidden rounded-[var(--radius-btn)] bg-paper-alt">
+              <div className={`h-full rounded-[var(--radius-btn)] ${item.className}`} style={{ width: `${ALLOCATION_PCT[i]}%` }} />
             </div>
-            <p className="tabular w-8 text-right text-[11px] font-medium text-ink">{item.pct}%</p>
+            <p className="tabular w-8 text-right text-[11px] font-medium text-ink">{ALLOCATION_PCT[i]}%</p>
           </div>
         ))}
       </div>

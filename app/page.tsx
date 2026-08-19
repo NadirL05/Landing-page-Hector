@@ -6,12 +6,16 @@ import { WhatsAppMockup, BilanApercu } from "@/components/hero-mockups";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 // Contenu source : Figma Make (figma.com/make/sh6K53CdXkJl0eAR5D7Vf0) + PRD 3
-// Messaging & Value Prop (patrimoine repo), refonte design "private
-// banking sombre" (passe dédiée — voir Mobbin refs Fey/Origin/Rox).
+// Messaging & Value Prop (patrimoine repo). Refonte design v2 — passe
+// anti-convergence dédiée : la v1 ("dark ink + gold/émeraude + Fraunces
+// + folios géants") était la même DA que HostIA (dark luxury obsidienne/
+// champagne) avec un autre accent. v2 = "lettre de cabinet de gestion de
+// patrimoine française" : canvas papier quasi permanent, encre navy,
+// or réduit à l'ornement. Voir Mobbin refs Titan (Annual Investor
+// Letter, masthead) et Origin (bloc éditorial clair) citées en revue.
 // 3 corrections historiques conservées : points retirés sur titres
-// single-sentence, emoji remplacés par liseré de couleur (crédibilité
-// profession réglementée), "Bilan Patrimonial" → "Bilan patrimonial"
-// (pas un nom de marque déposé).
+// single-sentence, emoji remplacés par filet/typographie, "Bilan
+// Patrimonial" → "Bilan patrimonial" (pas un nom de marque déposé).
 
 // Liens de paiement Stripe (mode TEST — compte Hector, pas de vrai argent
 // tant que non basculé en live) et prise de RDV Calendly.
@@ -20,9 +24,9 @@ const STRIPE_LINK_YEARLY = "https://buy.stripe.com/test_8x2dRabPBcIvey46mz1Fe01"
 const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30min";
 
 const STEPS = [
-  { n: "01", label: "Connecter", desc: "Hector se greffe sur vos outils existants — Harvest, Linxea, ou tout autre logiciel de votre cabinet. Aucune migration, aucun lock-in." },
-  { n: "02", label: "Discuter", desc: "Envoyez-lui un message sur WhatsApp comme à un collègue. Demandez un bilan, une relance, un rapprochement." },
-  { n: "03", label: "Recevoir", desc: "Il vous rend le travail fini : page de bilan interactive brandée à votre cabinet, relance envoyée, anomalie signalée." },
+  { n: "I", label: "Connecter", desc: "Hector se greffe sur vos outils existants — Harvest, Linxea, ou tout autre logiciel de votre cabinet. Aucune migration, aucun lock-in." },
+  { n: "II", label: "Discuter", desc: "Envoyez-lui un message sur WhatsApp comme à un collègue. Demandez un bilan, une relance, un rapprochement." },
+  { n: "III", label: "Recevoir", desc: "Il vous rend le travail fini : page de bilan interactive brandée à votre cabinet, relance envoyée, anomalie signalée." },
 ] as const;
 
 const ENJEUX = [
@@ -40,178 +44,178 @@ const COMPARISON_ROWS = [
   { label: "Décision d'investissement", hector: "jamais (prépare, vous validez)", classique: "—", gpt: "risque hallucination" },
 ] as const;
 
-const CHECK_ICON = (
-  <svg className="shrink-0 text-gold-600" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M2.5 7l3 3 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+const TARIFS = [
+  { periode: "Mensuel", prix: "149 €", unite: "/ mois", note: "—", cta: "Commencer gratuitement", href: STRIPE_LINK_MONTHLY },
+  { periode: "Annuel", prix: "1 490 €", unite: "/ an", note: "soit 124 €/mois · 2 mois offerts", cta: "Commencer gratuitement", href: STRIPE_LINK_YEARLY },
+] as const;
 
 export default function Home() {
   return (
     <>
       <JsonLd src="/schema/software-application.json" />
-      <div className="min-h-screen bg-surface">
-        <header className="sticky top-0 z-50 border-b border-line bg-surface/85 backdrop-blur-md">
-          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-            <div className="flex items-baseline gap-2">
-              <span className="font-display text-lg tracking-tight text-ink">Hector</span>
-              <span className="hidden text-xs font-normal text-ink-muted sm:inline">pour CGPI</span>
+      <div className="min-h-screen bg-paper">
+        {/* ===== MASTHEAD =====
+            En-tête de courrier, pas une nav-bar SaaS : wordmark en petites
+            capitales espacées, sous-titre en italique, liens texte plats
+            (jamais de bouton pilule dans le header). Réf Titan masthead. */}
+        <header className="border-b border-rule bg-paper">
+          <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+            <div>
+              <p className="text-lg font-semibold tracking-[0.14em] text-ink">HECTOR</p>
+              <p className="hidden font-display text-xs italic text-ink-faint sm:block">Pour cabinets de gestion de patrimoine indépendants</p>
             </div>
-            <a href="#tarifs" className="rounded-[var(--radius-pill)] bg-ink px-4 py-2 text-sm font-medium text-surface transition-colors hover:bg-ink-900">
-              Commencer gratuitement
-            </a>
+            <nav aria-label="Navigation principale" className="flex items-center gap-6 text-sm text-ink-soft">
+              <a href="#confiance" className="hidden underline decoration-rule-strong underline-offset-4 transition-colors hover:text-ink sm:inline">
+                Cadre de confiance
+              </a>
+              <a href="#tarifs" className="underline decoration-gold underline-offset-4 transition-colors hover:text-ink">
+                Tarifs
+              </a>
+            </nav>
           </div>
         </header>
 
         <main>
           {/* ===== HERO =====
-              Composition asymétrique volontaire : le texte occupe 7/12,
-              les deux aperçus produit se chevauchent en profondeur
-              (rotation légère + décalage + ombre portée large) plutôt
-              qu'un centrage sage côte à côte. Lueur or renforcée pour
-              ancrer le point focal sur le bilan patrimonial. */}
-          <section className="grain-dark relative overflow-hidden bg-ink-900">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute right-[-15%] top-[-25%] h-[720px] w-[720px] rounded-full opacity-[0.20] blur-[140px]"
-              style={{ background: "oklch(74% 0.12 85)" }}
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-[-25%] left-[-15%] h-[520px] w-[520px] rounded-full opacity-[0.13] blur-[130px]"
-              style={{ background: "oklch(45% 0.09 165)" }}
-            />
-            <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-20 lg:pb-40 lg:pt-24">
-              <div className="grid items-center gap-16 lg:grid-cols-12">
-                <div className="lg:col-span-8">
-                  <span className="gold-rule mb-6" aria-hidden />
-                  <p className="mb-5 font-display text-sm italic text-gold-300">
-                    Pour CGPI indépendants
-                  </p>
-                  <h1 className="text-hero mb-8 font-display text-surface">
+              Composition de lettre : colonne de texte 7/12 avec lettrine,
+              une seule pièce jointe en vis-à-vis présentée comme une
+              planche de rapport ("Fig. 1"), pas un collage de deux
+              mockups pivotés qui se chevauchent (tic dark-fintech). */}
+          <section className="border-b border-rule">
+            <div className="mx-auto max-w-6xl px-6 pb-20 pt-16 lg:pb-28 lg:pt-20">
+              <div className="grid items-start gap-16 lg:grid-cols-12">
+                <div className="lg:col-span-7">
+                  <p className="letter-kicker mb-6 text-ink-faint">Pour CGPI indépendants</p>
+                  <h1 className="text-hero mb-8 font-display text-ink">
                     Pas un logiciel.
                     <br />
-                    <span className="italic text-gold-300">Un collaborateur.</span>
+                    Un collaborateur.
                   </h1>
-                  <p className="mb-8 max-w-lg text-lg leading-relaxed text-ink-muted-dark lg:text-xl">
-                    Hector se branche sur la stack de votre cabinet, vous discutez avec lui, il vous rend le travail fini.
+                  <p className="drop-cap mb-8 max-w-lg text-base leading-relaxed text-ink-soft lg:text-lg">
+                    Hector se branche sur la stack de votre cabinet, vous discutez avec lui, il vous rend le travail fini — sans remplacer vos outils existants, sans nouveau tableau de bord à apprendre.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] bg-gold px-6 py-3 font-medium text-ink-900 transition-all hover:bg-gold-300">
+                    <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-ink bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-transparent hover:text-ink">
                       Commencer gratuitement
                     </a>
-                    <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] border border-line-dark px-6 py-3 font-medium text-surface transition-all hover:border-gold-300 hover:text-gold-300">
+                    <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-rule-strong px-6 py-3 text-sm font-medium text-ink-soft transition-colors hover:border-ink hover:text-ink">
                       Voir un bilan en live
                     </a>
                   </div>
-                  <p className="mt-10 max-w-md border-t border-line-dark pt-6 text-sm leading-relaxed text-ink-muted-dark">
-                    Hector consolide automatiquement le suivi d&apos;un parc d&apos;actifs patrimoniaux, déclenche relances et alertes, et vous transmet chaque livrable via WhatsApp — sans remplacer vos outils existants.
+                  <p className="mt-12 max-w-md border-t border-rule pt-6 text-sm leading-relaxed text-ink-faint">
+                    Hector consolide automatiquement le suivi d&apos;un parc d&apos;actifs patrimoniaux, déclenche relances et alertes, et vous transmet chaque livrable via WhatsApp.
                   </p>
                 </div>
-                <div className="relative lg:col-span-4">
-                  <div className="relative mx-auto h-[420px] w-full max-w-sm sm:h-[460px]">
-                    <div className="absolute left-0 top-0 w-[75%] -rotate-6 transition-transform duration-500 ease-out hover:-rotate-3 hover:scale-[1.02]">
-                      <WhatsAppMockup />
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-[72%] rotate-3 transition-transform duration-500 ease-out hover:rotate-1 hover:scale-[1.02]">
-                      <BilanApercu />
-                    </div>
-                  </div>
+                <div className="lg:col-span-5">
+                  <figure className="border border-rule bg-paper-alt p-4">
+                    <BilanApercu />
+                    <figcaption className="mt-3 border-t border-rule pt-3 text-xs text-ink-faint">
+                      Fig. 1 — Bilan patrimonial reçu sur WhatsApp. Exemple illustratif.
+                    </figcaption>
+                  </figure>
+                  <figure className="mt-6 border border-rule bg-paper-alt p-4">
+                    <WhatsAppMockup />
+                    <figcaption className="mt-3 border-t border-rule pt-3 text-xs text-ink-faint">
+                      Fig. 2 — Échange avec Hector. Exemple illustratif.
+                    </figcaption>
+                  </figure>
                 </div>
               </div>
             </div>
           </section>
 
           {/* ===== ÉTAPES ===== */}
-          <section className="border-b border-line bg-surface-alt">
+          <section className="border-b border-rule bg-paper-alt">
             <div className="mx-auto max-w-6xl px-6 py-20">
-              <div className="grid gap-0 divide-y divide-line lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+              <div className="grid gap-0 divide-y divide-rule-strong lg:grid-cols-3 lg:divide-x lg:divide-y-0">
                 {STEPS.map((s, i) => (
                   <ScrollReveal key={s.n} delayMs={i * 100} className="px-6 py-8 first:pl-0 last:pr-0 lg:py-0">
-                    <p className="mb-3 font-display text-5xl italic text-gold-300/70">{s.n}</p>
+                    <p className="mb-3 font-display text-sm italic text-gold-ink">Article {s.n}</p>
                     <h3 className="mb-3 text-xl font-semibold text-ink">{s.label}</h3>
-                    <p className="text-sm leading-relaxed text-ink-muted">{s.desc}</p>
+                    <p className="text-sm leading-relaxed text-ink-soft">{s.desc}</p>
                   </ScrollReveal>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* ===== DOULEURS ===== */}
-          <section className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+          {/* ===== DOULEURS =====
+              Liste à filets, registre "clauses d'un courrier", pas une
+              grille de cartes avec fond de survol coloré. */}
+          <section className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
             <ScrollReveal className="mb-14 max-w-xl">
-              <span className="gold-rule mb-4" aria-hidden />
-              <p className="mb-3 font-display text-sm italic text-gold-800">Le quotidien</p>
+              <p className="letter-kicker mb-3 text-ink-faint">Le quotidien</p>
               <h2 className="text-display-lg font-display text-ink">
                 Ce qui ronge le temps d&apos;un cabinet
               </h2>
             </ScrollReveal>
-            <div className="grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line sm:grid-cols-2">
+            <div className="divide-y divide-rule border-y border-rule">
               {ENJEUX.map((e, i) => (
-                <ScrollReveal key={e.title} delayMs={i * 80} className="border-l-2 border-l-gold bg-surface p-8 transition-colors hover:bg-surface-alt">
-                  <h3 className="mb-2 font-semibold leading-snug text-ink">{e.title}</h3>
-                  <p className="text-sm leading-relaxed text-ink-muted">{e.desc}</p>
+                <ScrollReveal key={e.title} delayMs={i * 60} className="grid gap-2 py-7 sm:grid-cols-12 sm:gap-8">
+                  <h3 className="sm:col-span-4 font-medium leading-snug text-ink">{e.title}</h3>
+                  <p className="sm:col-span-8 text-sm leading-relaxed text-ink-soft">{e.desc}</p>
                 </ScrollReveal>
               ))}
             </div>
           </section>
 
-          {/* ===== BÉNÉFICES ===== */}
-          <section className="grain-dark bg-ink-900" id="demo">
-            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+          {/* ===== BÉNÉFICES =====
+              Deux planches de rapport côte à côte, filets et numérotation
+              en note de bas de page — pas de fond gold/blanc translucide
+              façon carte SaaS. */}
+          <section className="border-t border-rule bg-paper-alt" id="demo">
+            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
               <ScrollReveal className="mb-16 max-w-xl">
-                <span className="gold-rule mb-4" aria-hidden />
-                <p className="mb-3 font-display text-sm italic text-gold-300">Ce que ça change</p>
-                <h2 className="text-display-lg font-display text-surface">Deux bénéfices, dans cet ordre</h2>
+                <p className="letter-kicker mb-3 text-ink-faint">Ce que ça change</p>
+                <h2 className="text-display-lg font-display text-ink">Deux bénéfices, dans cet ordre</h2>
               </ScrollReveal>
-              <div className="grid gap-8 lg:grid-cols-2">
-                <ScrollReveal className="relative overflow-hidden rounded-[var(--radius-card)] border border-gold/30 bg-gold/[0.06] p-10">
-                  <div className="absolute right-6 top-6 select-none font-display text-8xl italic text-gold/15">1</div>
-                  <p className="mb-4 font-display text-4xl leading-tight text-surface">Vos livrables deviennent votre argument commercial</p>
-                  <p className="leading-relaxed text-ink-muted-dark">
+              <div className="grid gap-px overflow-hidden border border-rule bg-rule lg:grid-cols-2">
+                <ScrollReveal className="bg-paper p-10">
+                  <p className="footnote-mark mb-3 font-display text-sm text-gold-ink">1</p>
+                  <p className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Vos livrables deviennent votre argument commercial</p>
+                  <p className="leading-relaxed text-ink-soft">
                     Un bilan patrimonial interactif, brandé à votre cabinet, envoyé en 20 minutes : c&apos;est le livrable que vos clients montrent à leur entourage. Votre visibilité, votre revenu.
                   </p>
-                  <p className="mt-6 text-sm font-medium text-gold-300">→ Revenu et différenciation</p>
+                  <p className="mt-6 border-t border-rule pt-4 text-sm font-medium text-gold-ink">Revenu et différenciation</p>
                 </ScrollReveal>
-                <ScrollReveal delayMs={120} className="relative overflow-hidden rounded-[var(--radius-card)] border border-line-dark bg-white/[0.03] p-10">
-                  <div className="absolute right-6 top-6 select-none font-display text-8xl italic text-surface/10">2</div>
-                  <p className="mb-4 text-2xl font-semibold leading-tight text-surface">Le répétitif tourne seul</p>
-                  <p className="leading-relaxed text-ink-muted-dark">
+                <ScrollReveal delayMs={80} className="bg-paper p-10">
+                  <p className="footnote-mark mb-3 font-display text-sm text-ink-faint">2</p>
+                  <p className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Le répétitif tourne seul</p>
+                  <p className="leading-relaxed text-ink-soft">
                     Surveillance des portefeuilles, relances automatiques, alertes d&apos;anomalie — Hector s&apos;en occupe pendant que vous conseillez. Moins de charge mentale, plus de disponibilité pour vos clients.
                   </p>
-                  <p className="mt-6 text-sm font-medium text-ink-muted-dark">→ Temps et sérénité</p>
+                  <p className="mt-6 border-t border-rule pt-4 text-sm font-medium text-ink-faint">Temps et sérénité</p>
                 </ScrollReveal>
               </div>
             </div>
           </section>
 
-          {/* ===== TABLE COMPARATIVE ===== */}
-          <section className="border-t border-line">
-            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+          {/* ===== TABLE COMPARATIVE — feuille de comparaison à filets ===== */}
+          <section className="border-t border-rule">
+            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
               <ScrollReveal className="mb-14 max-w-xl">
-                <span className="gold-rule mb-4" aria-hidden />
-                <p className="mb-3 font-display text-sm italic text-gold-800">Positionnement</p>
+                <p className="letter-kicker mb-3 text-ink-faint">Positionnement</p>
                 <h2 className="text-display-lg font-display text-ink">Ce que les autres ne font pas</h2>
               </ScrollReveal>
               <div className="-mx-6 overflow-x-auto px-6">
                 <table className="w-full min-w-[640px] border-collapse text-sm">
                   <thead>
                     <tr>
-                      <th className="w-40 py-4 pr-6 text-left font-medium text-ink-muted" />
-                      <th className="rounded-t-[var(--radius-card)] border border-b-0 border-line bg-surface-alt px-6 py-4 text-center">
-                        <span className="font-display italic text-gold-800">Hector</span>
+                      <th className="w-40 border-b border-rule-strong py-4 pr-6 text-left font-normal text-ink-faint" />
+                      <th className="border-b-2 border-ink px-6 py-4 text-center">
+                        <span className="font-display italic text-ink">Hector</span>
                       </th>
-                      <th className="px-6 py-4 text-center font-medium text-ink-muted">Logiciels CGP classiques</th>
-                      <th className="px-6 py-4 text-center font-medium text-ink-muted">ChatGPT générique</th>
+                      <th className="border-b border-rule-strong px-6 py-4 text-center font-normal text-ink-faint">Logiciels CGP classiques</th>
+                      <th className="border-b border-rule-strong px-6 py-4 text-center font-normal text-ink-faint">ChatGPT générique</th>
                     </tr>
                   </thead>
                   <tbody>
                     {COMPARISON_ROWS.map((row) => (
                       <tr key={row.label}>
-                        <td className="border-t border-line py-4 pr-6 font-medium text-ink">{row.label}</td>
-                        <td className="border-x border-t border-line bg-surface-alt px-6 py-4 text-center font-medium text-gold-800">{row.hector}</td>
-                        <td className="border-t border-line px-6 py-4 text-center text-ink-muted">{row.classique}</td>
-                        <td className="border-t border-line px-6 py-4 text-center text-ink-muted">{row.gpt}</td>
+                        <td className="border-b border-rule py-4 pr-6 font-medium text-ink">{row.label}</td>
+                        <td className="border-x border-b border-rule bg-paper-alt px-6 py-4 text-center font-medium text-ink">{row.hector}</td>
+                        <td className="border-b border-rule px-6 py-4 text-center text-ink-soft">{row.classique}</td>
+                        <td className="border-b border-rule px-6 py-4 text-center text-ink-soft">{row.gpt}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -224,83 +228,57 @@ export default function Home() {
 
           <FaqSection />
 
-          {/* ===== TARIFS ===== */}
-          <section className="border-t border-line" id="tarifs">
-            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+          {/* ===== TARIFS — feuille tarifaire à filets, pas deux cartes
+              concurrentes avec badge pilule ===== */}
+          <section className="border-t border-rule" id="tarifs">
+            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
               <ScrollReveal className="mb-14 max-w-xl">
-                <span className="gold-rule mb-4" aria-hidden />
-                <p className="mb-3 font-display text-sm italic text-gold-800">Tarifs</p>
+                <p className="letter-kicker mb-3 text-ink-faint">Tarifs</p>
                 <h2 className="text-display-lg font-display text-ink">Un collaborateur, un abonnement simple</h2>
               </ScrollReveal>
-              <div className="mb-8 grid max-w-2xl gap-6 sm:grid-cols-2">
-                <div className="rounded-[var(--radius-card)] border border-line p-8">
-                  <p className="mb-4 text-sm font-medium text-ink-muted">Mensuel</p>
-                  <div className="mb-6 flex items-baseline gap-1">
-                    <span className="tabular font-display text-4xl text-ink">149 €</span>
-                    <span className="text-ink-muted">/mois</span>
+              <div className="max-w-2xl border-y border-rule">
+                {TARIFS.map((t, i) => (
+                  <div key={t.periode} className={`flex flex-wrap items-center justify-between gap-4 py-6 ${i === 0 ? "border-b border-rule" : ""}`}>
+                    <div>
+                      <p className="letter-kicker text-ink-faint">{t.periode}</p>
+                      <div className="mt-1 flex items-baseline gap-1">
+                        <span className="tabular font-display text-3xl text-ink">{t.prix}</span>
+                        <span className="text-sm text-ink-faint">{t.unite}</span>
+                      </div>
+                      {t.note !== "—" && <p className="mt-1 text-xs text-gold-ink">{t.note}</p>}
+                    </div>
+                    <a href={t.href} className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-ink px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper">
+                      {t.cta}
+                    </a>
                   </div>
-                  <ul className="mb-8 space-y-2.5">
-                    {["Module d'entrée inclus", "Connexion à votre stack", "Accès WhatsApp", "Livrables brandés"].map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-sm text-ink-muted">
-                        {CHECK_ICON}
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href={STRIPE_LINK_MONTHLY} className="block rounded-[var(--radius-pill)] border border-ink px-6 py-3 text-center text-sm font-medium text-ink transition-colors hover:bg-surface-alt">
-                    Commencer gratuitement
-                  </a>
-                </div>
-                <div className="relative rounded-[var(--radius-card)] border-2 border-gold p-8">
-                  <span className="absolute right-4 top-4 rounded-[var(--radius-pill)] bg-gold px-2 py-1 text-[10px] font-semibold text-ink-900">−17 %</span>
-                  <p className="mb-4 text-sm font-medium text-ink-muted">Annuel</p>
-                  <div className="mb-1 flex items-baseline gap-1">
-                    <span className="tabular font-display text-4xl text-ink">1 490 €</span>
-                    <span className="text-ink-muted">/an</span>
-                  </div>
-                  <p className="mb-6 text-xs text-gold-800">soit 124 €/mois</p>
-                  <ul className="mb-8 space-y-2.5">
-                    {["Tout le mensuel", "2 mois offerts", "Priorité support", "Onboarding dédié"].map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-sm text-ink-muted">
-                        {CHECK_ICON}
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href={STRIPE_LINK_YEARLY} className="block rounded-[var(--radius-pill)] bg-ink px-6 py-3 text-center text-sm font-medium text-surface transition-colors hover:bg-ink-900">
-                    Commencer gratuitement
-                  </a>
-                </div>
+                ))}
               </div>
-              <p className="mb-1 text-sm text-ink-muted">
+              <p className="mt-6 text-sm text-ink-soft">
                 Module supplémentaire : <span className="font-medium text-ink">+100 € / mois</span>
               </p>
-              <p className="text-xs text-ink-muted opacity-70">
+              <p className="mt-1 text-xs text-ink-faint">
                 Hypothèse tarifaire en cours de validation, pas encore vendue. Nous contacter pour valider votre configuration.
               </p>
             </div>
           </section>
 
-          {/* ===== CTA FINAL ===== */}
-          <section className="grain-dark relative overflow-hidden border-t border-line-dark bg-ink-900">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.16] blur-[130px]"
-              style={{ background: "oklch(74% 0.12 85)" }}
-            />
-            <ScrollReveal className="relative mx-auto max-w-3xl px-6 py-28 text-center">
+          {/* ===== CTA FINAL — "sceau" =====
+              Unique bande d'encre profonde de la page : clôture de lettre,
+              pas une alternance systématique clair/sombre par section. */}
+          <section className="grain-paper border-t border-rule bg-seal">
+            <ScrollReveal className="relative mx-auto max-w-2xl px-6 py-24 text-center lg:py-28">
               <span className="gold-rule mx-auto mb-8" aria-hidden />
-              <h2 className="text-display-lg mb-6 font-display text-surface">
-                Votre cabinet mérite un collaborateur, <span className="italic text-gold-300">pas un logiciel de plus</span>
+              <h2 className="text-display-lg mb-6 font-display text-seal-paper">
+                Votre cabinet mérite un collaborateur, pas un logiciel de plus
               </h2>
-              <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-ink-muted-dark">
+              <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed text-seal-soft lg:text-lg">
                 Réservez une démonstration. Hector se connecte à votre stack en quelques minutes.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] bg-gold px-8 py-4 text-base font-medium text-ink-900 transition-all hover:bg-gold-300">
+                <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-seal-paper bg-seal-paper px-7 py-3.5 text-sm font-medium text-seal transition-colors hover:bg-transparent hover:text-seal-paper">
                   Commencer gratuitement
                 </a>
-                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] border border-line-dark px-8 py-4 text-base font-medium text-surface transition-all hover:border-gold-300 hover:text-gold-300">
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-seal-soft px-7 py-3.5 text-sm font-medium text-seal-paper transition-colors hover:border-seal-paper">
                   Voir un bilan en live
                 </a>
               </div>
@@ -308,12 +286,12 @@ export default function Home() {
           </section>
         </main>
 
-        <footer className="border-t border-line">
-          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 text-xs text-ink-muted">
+        <footer className="border-t border-rule">
+          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 text-xs text-ink-faint">
             <span>© {new Date().getFullYear()} Hector</span>
             <div className="flex gap-6">
-              <Link href="/confidentialite" className="transition-colors hover:text-gold-800">RGPD</Link>
-              <Link href="/mentions-legales" className="transition-colors hover:text-gold-800">Mentions légales</Link>
+              <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>
+              <Link href="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
             </div>
           </div>
         </footer>
