@@ -29,17 +29,16 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="border-t border-line bg-surface" id="faq">
+    <section className="border-t border-rule" id="faq">
       <JsonLd src="/schema/faq.json" />
-      <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32">
+      <div className="mx-auto max-w-3xl px-safe py-24 lg:py-28">
         <ScrollReveal className="mb-12 max-w-xl">
-          <span className="gold-rule mb-4" aria-hidden />
-          <p className="mb-3 font-display text-sm italic text-gold-800">Questions fréquentes</p>
+          <p className="letter-kicker mb-3 text-ink-faint">Questions fréquentes</p>
           <h2 className="text-display-lg font-display text-ink">
             Ce que les CGPI nous demandent
           </h2>
         </ScrollReveal>
-        <div className="divide-y divide-line border-y border-line">
+        <div className="divide-y divide-rule border-y border-rule">
           {FAQS.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -52,7 +51,7 @@ export function FaqSection() {
                 >
                   <span className="font-medium text-ink">{item.q}</span>
                   <svg
-                    className={`shrink-0 text-gold-600 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                    className={`shrink-0 text-gold-ink transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
                     width="18"
                     height="18"
                     viewBox="0 0 18 18"
@@ -66,7 +65,7 @@ export function FaqSection() {
                   style={{ display: "grid", gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 pr-8 text-sm leading-relaxed text-ink-muted">{item.a}</p>
+                    <p className="pb-5 pr-8 text-sm leading-relaxed text-ink-soft">{item.a}</p>
                   </div>
                 </div>
               </div>

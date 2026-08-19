@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 
@@ -45,6 +45,17 @@ export const metadata: Metadata = {
     title: "Hector — pas un logiciel, un collaborateur",
     description: "Pour CGPI indépendants. Connecter · Discuter · Recevoir.",
   },
+};
+
+// viewport-fit=cover : la bande d'encre "sceau" et le masthead sont
+// plein-bleed jusqu'aux bords — sans cover, iOS laisse une marge de
+// sécurité blanche non stylée de part et d'autre en paysage (notch).
+// width/initialScale reprennent le défaut Next.js explicitement, car
+// déclarer `viewport` remplace entièrement la balise générée par défaut.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
