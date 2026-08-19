@@ -8,6 +8,12 @@ import { FaqSection } from "@/components/faq-section";
 // liseré de couleur (crédibilité profession réglementée), "Bilan
 // Patrimonial" → "Bilan patrimonial" (pas un nom de marque déposé).
 
+// Liens de paiement Stripe (mode TEST — compte Hector, pas de vrai argent
+// tant que non basculé en live) et prise de RDV Calendly.
+const STRIPE_LINK_MONTHLY = "https://buy.stripe.com/test_eVqcN65rdgYLblSaCP1Fe00";
+const STRIPE_LINK_YEARLY = "https://buy.stripe.com/test_8x2dRabPBcIvey46mz1Fe01";
+const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30min";
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -186,7 +192,7 @@ export default function Home() {
                   <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[0.75rem] bg-[oklch(55%_0.18_250)] px-6 py-3 font-medium text-white transition-all hover:bg-[oklch(45%_0.18_250)]">
                     Commencer gratuitement
                   </a>
-                  <a href="#demo" className="inline-flex items-center gap-2 rounded-[0.75rem] border border-[oklch(86%_0.06_250)] px-6 py-3 font-medium text-[oklch(48%_0.04_250)] transition-all hover:border-[oklch(55%_0.18_250)] hover:text-[oklch(55%_0.18_250)]">
+                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[0.75rem] border border-[oklch(86%_0.06_250)] px-6 py-3 font-medium text-[oklch(48%_0.04_250)] transition-all hover:border-[oklch(55%_0.18_250)] hover:text-[oklch(55%_0.18_250)]">
                     Voir un bilan en live
                   </a>
                 </div>
@@ -323,9 +329,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/signup" className="block rounded-[0.75rem] border border-[oklch(55%_0.18_250)] px-6 py-3 text-center text-sm font-medium text-[oklch(55%_0.18_250)] transition-colors hover:bg-[oklch(97%_0.012_250)]">
+                  <a href={STRIPE_LINK_MONTHLY} className="block rounded-[0.75rem] border border-[oklch(55%_0.18_250)] px-6 py-3 text-center text-sm font-medium text-[oklch(55%_0.18_250)] transition-colors hover:bg-[oklch(97%_0.012_250)]">
                     Commencer gratuitement
-                  </Link>
+                  </a>
                 </div>
                 <div className="relative rounded-[0.75rem] border-2 border-[oklch(55%_0.18_250)] p-8">
                   <span className="absolute right-4 top-4 rounded-full bg-[oklch(55%_0.18_250)] px-2 py-1 text-[10px] font-semibold text-white">−17 %</span>
@@ -345,9 +351,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/signup" className="block rounded-[0.75rem] bg-[oklch(55%_0.18_250)] px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-[oklch(45%_0.18_250)]">
+                  <a href={STRIPE_LINK_YEARLY} className="block rounded-[0.75rem] bg-[oklch(55%_0.18_250)] px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-[oklch(45%_0.18_250)]">
                     Commencer gratuitement
-                  </Link>
+                  </a>
                 </div>
               </div>
               <p className="mb-1 text-sm text-[oklch(48%_0.04_250)]">
@@ -372,7 +378,7 @@ export default function Home() {
                 <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[0.75rem] bg-[oklch(55%_0.18_250)] px-8 py-4 text-base font-medium text-white transition-all hover:bg-[oklch(45%_0.18_250)]">
                   Commencer gratuitement
                 </a>
-                <a href="#demo" className="inline-flex items-center gap-2 rounded-[0.75rem] border border-[oklch(86%_0.06_250)] px-8 py-4 text-base font-medium text-[oklch(48%_0.04_250)] transition-all hover:border-[oklch(55%_0.18_250)] hover:text-[oklch(55%_0.18_250)]">
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[0.75rem] border border-[oklch(86%_0.06_250)] px-8 py-4 text-base font-medium text-[oklch(48%_0.04_250)] transition-all hover:border-[oklch(55%_0.18_250)] hover:text-[oklch(55%_0.18_250)]">
                   Voir un bilan en live
                 </a>
               </div>
