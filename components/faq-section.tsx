@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { JsonLd } from "@/components/json-ld";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 // Garder ce tableau synchronisé avec public/schema/faq.json (JSON-LD
 // externalisé — voir components/json-ld.tsx pour le pourquoi).
@@ -31,12 +32,13 @@ export function FaqSection() {
     <section className="border-t border-line bg-surface" id="faq">
       <JsonLd src="/schema/faq.json" />
       <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32">
-        <div className="mb-12 max-w-xl">
-          <p className="mb-3 font-display text-sm italic text-gold-600">Questions fréquentes</p>
-          <h2 className="font-display text-3xl leading-tight text-ink lg:text-4xl">
+        <ScrollReveal className="mb-12 max-w-xl">
+          <span className="gold-rule mb-4" aria-hidden />
+          <p className="mb-3 font-display text-sm italic text-gold-800">Questions fréquentes</p>
+          <h2 className="text-display-lg font-display text-ink">
             Ce que les CGPI nous demandent
           </h2>
-        </div>
+        </ScrollReveal>
         <div className="divide-y divide-line border-y border-line">
           {FAQS.map((item, i) => {
             const isOpen = openIndex === i;
