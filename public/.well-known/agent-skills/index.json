@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "site-overview",
+      "type": "skill-md",
+      "description": "Vue d'ensemble d'Hector (collaborateur IA pour CGPI) : ce qu'il fait, pour qui, ce que ce site est (landing marketing seule, pas l'outil), et les tarifs à l'état d'hypothèse.",
+      "url": "https://hector.agentimpact.fr/.well-known/agent-skills/site-overview/SKILL.md",
+      "digest": "sha256:2eb07e6f2a55586d3ffe6c1ac9081fcbebadfcd322ad13b5ce92aeed925b6ab5"
+    }
+  ]
+}

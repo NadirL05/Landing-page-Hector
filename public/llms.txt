@@ -1,0 +1,39 @@
+# Hector
+
+> Collaborateur IA pour cabinets de gestion de patrimoine indépendants (CGPI). Se connecte à la stack existante du cabinet (Harvest, Linxea, ou tout autre logiciel), se pilote depuis WhatsApp, et livre le travail fini plutôt qu'un outil de plus à opérer.
+
+## Statut
+
+Ce site (hector.agentimpact.fr) est une landing marketing seule. L'outil Hector est en construction, avec un nombre restreint de cabinets pilotes ; il n'est pas encore disponible en self-service. Aucune API publique ni serveur MCP live n'est exposée à ce stade.
+
+## Pour qui
+
+CGPI indépendants (cabinets de gestion de patrimoine).
+
+## Ce que fait Hector
+
+- Connecter : se greffe sur les outils existants du cabinet, aucune migration, aucun lock-in.
+- Discuter : pilotage conversationnel via WhatsApp, comme avec un collègue.
+- Recevoir : livrables finis — bilan patrimonial interactif brandé au cabinet, relance envoyée, anomalie signalée.
+
+## Ce qu'Hector ne fait jamais
+
+Aucune décision d'investissement automatisée. Hector prépare, le CGPI valide toujours.
+
+## Tarifs
+
+Hypothèse tarifaire en cours de validation, pas encore vendue commercialement — sujette à changement :
+
+- Mensuel : 149 €/mois
+- Annuel : 1 490 €/an (soit 124 €/mois, 2 mois offerts)
+
+## Liens
+
+- Site : https://hector.agentimpact.fr
+- Démo : https://calendly.com/nadir-lahyani-agentimpact/30min
+- Agent Skills index : https://hector.agentimpact.fr/.well-known/agent-skills/index.json
+- MCP server card : https://hector.agentimpact.fr/.well-known/mcp/server-card.json
+
+## Éditeur
+
+AgentImpact — Nadir Lahyani

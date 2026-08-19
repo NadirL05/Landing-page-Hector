@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.modelcontextprotocol.io/server-card/draft/schema.json",
+  "serverInfo": {
+    "name": "Hector",
+    "description": "Hector est un collaborateur IA pour cabinets de gestion de patrimoine indépendants (CGPI) — consolidation du suivi patrimonial, relances et rapprochements pilotés depuis WhatsApp. Ce site est une landing marketing seule ; l'outil Hector lui-même est en construction et n'expose aucun serveur MCP public à ce stade.",
+    "url": "https://hector.agentimpact.fr"
+  },
+  "status": "planned",
+  "transport": null,
+  "capabilities": {
+    "tools": false,
+    "resources": false,
+    "prompts": false
+  },
+  "contact": {
+    "website": "https://hector.agentimpact.fr",
+    "demo": "https://calendly.com/nadir-lahyani-agentimpact/30min"
+  }
+}

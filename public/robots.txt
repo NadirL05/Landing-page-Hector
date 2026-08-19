@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Crawlers IA majeurs — autorisés explicitement
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Content Signals — déclaration des préférences IA (contentsignals.org)
+# ai-train=no  : refus d'entraîner des modèles avec le contenu
+# search=yes   : indexation autorisée pour la recherche IA
+# ai-input=yes : usage autorisé comme contexte d'un agent (RAG, réponse à une requête)
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+Sitemap: https://hector.agentimpact.fr/sitemap.xml
