@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Hector",
+  "url": "https://hector.agentimpact.fr",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Collaborateur IA pour CGPI",
+  "operatingSystem": "Web",
+  "description": "Hector consolide le suivi patrimonial d'un cabinet de gestion de patrimoine, déclenche relances et rapprochements, et livre le travail fini via WhatsApp.",
+  "inLanguage": "fr",
+  "offers": [
+    { "@type": "Offer", "name": "Mensuel", "price": "149", "priceCurrency": "EUR", "billingIncrement": "P1M" },
+    { "@type": "Offer", "name": "Annuel", "price": "1490", "priceCurrency": "EUR", "billingIncrement": "P1Y" }
+  ]
+}

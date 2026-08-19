@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { JsonLd } from "@/components/json-ld";
 
+// Garder ce tableau synchronisé avec public/schema/faq.json (JSON-LD
+// externalisé — voir components/json-ld.tsx pour le pourquoi).
 const FAQS = [
   {
     q: "Encore un outil à apprendre ?",
@@ -16,32 +18,26 @@ const FAQS = [
     q: "J'ai déjà Harvest, à quoi bon Hector ?",
     a: "Hector ne remplace pas Harvest, il se branche dessus. Il ajoute la couche conversationnelle et proactive : relances automatiques, bilans instantanés, alertes — ce que votre logiciel actuel ne fait pas seul.",
   },
+  {
+    q: "Hector est-il déjà disponible ?",
+    a: "Hector est en phase de construction avec un nombre restreint de cabinets pilotes. Réservez une démonstration pour être prioritaire à l'ouverture et influencer les premières fonctionnalités livrées.",
+  },
 ] as const;
-
-const FAQ_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="border-t border-[oklch(93%_0.03_250)]" id="faq">
-      <JsonLd data={FAQ_JSON_LD} />
-      <div className="mx-auto max-w-3xl px-6 py-24">
+    <section className="border-t border-line bg-surface" id="faq">
+      <JsonLd src="/schema/faq.json" />
+      <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32">
         <div className="mb-12 max-w-xl">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-[oklch(55%_0.18_250)]">FAQ</p>
-          <h2 className="text-3xl font-semibold leading-tight text-[oklch(14%_0.02_250)] lg:text-4xl">
+          <p className="mb-3 font-display text-sm italic text-gold-600">Questions fréquentes</p>
+          <h2 className="font-display text-3xl leading-tight text-ink lg:text-4xl">
             Ce que les CGPI nous demandent
           </h2>
         </div>
-        <div className="divide-y divide-[oklch(93%_0.03_250)] border-y border-[oklch(93%_0.03_250)]">
+        <div className="divide-y divide-line border-y border-line">
           {FAQS.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -52,9 +48,9 @@ export function FaqSection() {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-6 py-5 text-left"
                 >
-                  <span className="font-medium text-[oklch(14%_0.02_250)]">{item.q}</span>
+                  <span className="font-medium text-ink">{item.q}</span>
                   <svg
-                    className={`shrink-0 text-[oklch(55%_0.18_250)] transition-transform ${isOpen ? "rotate-45" : ""}`}
+                    className={`shrink-0 text-gold-600 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
                     width="18"
                     height="18"
                     viewBox="0 0 18 18"
@@ -64,10 +60,12 @@ export function FaqSection() {
                   </svg>
                 </button>
                 <div
-                  className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
-                  style={{ maxHeight: isOpen ? "240px" : "0px" }}
+                  className="overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out"
+                  style={{ display: "grid", gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
-                  <p className="pb-5 pr-8 text-sm leading-relaxed text-[oklch(48%_0.04_250)]">{item.a}</p>
+                  <div className="overflow-hidden">
+                    <p className="pb-5 pr-8 text-sm leading-relaxed text-ink-muted">{item.a}</p>
+                  </div>
                 </div>
               </div>
             );
