@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import softwareApplicationSchema from "@/public/schema/software-application.json";
+import organizationSchema from "@/public/schema/organization.json";
 import { FaqSection } from "@/components/faq-section";
 import { TrustSection } from "@/components/trust-section";
 import { WhatsAppMockup, BilanApercu } from "@/components/hero-mockups";
@@ -55,6 +56,7 @@ export default function Home() {
   return (
     <>
       <JsonLd data={softwareApplicationSchema} />
+      <JsonLd data={organizationSchema} />
       <div className="min-h-screen bg-paper">
         {/* ===== MASTHEAD =====
             En-tête de courrier, pas une nav-bar SaaS : wordmark en petites
@@ -126,9 +128,15 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ===== ÉTAPES ===== */}
+          {/* ===== ÉTAPES =====
+              h2 sr-only : la section n'a pas de titre visible dans le
+              design (kicker + h2 non prévus ici, contrairement aux
+              sections suivantes), mais la hiérarchie sémantique doit
+              rester continue (h1 hero → h2 → h3 "Connecter/Discuter/
+              Recevoir"). Ne change rien visuellement. */}
           <section className="border-b border-rule bg-paper-alt">
             <div className="mx-auto max-w-6xl px-safe py-20">
+              <h2 className="sr-only">Comment Hector s&apos;intègre à votre cabinet</h2>
               <div className="grid gap-0 divide-y divide-rule-strong lg:grid-cols-3 lg:divide-x lg:divide-y-0">
                 {STEPS.map((s, i) => (
                   <ScrollReveal key={s.n} delayMs={i * 100} className="px-6 py-8 first:pl-0 last:pr-0 lg:py-0">
@@ -199,29 +207,40 @@ export default function Home() {
                 <p className="letter-kicker mb-3 text-ink-faint">Positionnement</p>
                 <h2 className="text-display-lg font-display text-ink">Ce que les autres ne font pas</h2>
               </ScrollReveal>
-              <div className="-mx-6 overflow-x-auto px-6">
-                <table className="w-full min-w-[640px] border-collapse text-sm">
-                  <thead>
-                    <tr>
-                      <th className="w-40 border-b border-rule-strong py-4 pr-6 text-left font-normal text-ink-faint" />
-                      <th className="border-b-2 border-ink px-6 py-4 text-center">
-                        <span className="font-display italic text-ink">Hector</span>
-                      </th>
-                      <th className="border-b border-rule-strong px-6 py-4 text-center font-normal text-ink-faint">Logiciels CGP classiques</th>
-                      <th className="border-b border-rule-strong px-6 py-4 text-center font-normal text-ink-faint">ChatGPT générique</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {COMPARISON_ROWS.map((row) => (
-                      <tr key={row.label}>
-                        <td className="border-b border-rule py-4 pr-6 font-medium text-ink">{row.label}</td>
-                        <td className="border-x border-b border-rule bg-paper-alt px-6 py-4 text-center font-medium text-ink">{row.hector}</td>
-                        <td className="border-b border-rule px-6 py-4 text-center text-ink-soft">{row.classique}</td>
-                        <td className="border-b border-rule px-6 py-4 text-center text-ink-soft">{row.gpt}</td>
+              {/* Conteneur scrollable + filet de dégradé sur le bord droit :
+                  seul indice visuel mobile qu'il y a plus de colonnes à
+                  droite (min-w-[640px] déborde sous ~640px de viewport).
+                  Le dégradé disparaît à partir de lg, où la table tient
+                  déjà dans la largeur du conteneur. */}
+              <div className="relative -mx-6 px-6">
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[640px] border-collapse text-sm">
+                    <thead>
+                      <tr>
+                        <th className="w-40 border-b border-rule-strong py-4 pr-6 text-left font-normal text-ink-faint" />
+                        <th className="border-b-2 border-ink px-6 py-4 text-center">
+                          <span className="font-display italic text-ink">Hector</span>
+                        </th>
+                        <th className="border-b border-rule-strong px-6 py-4 text-center font-normal text-ink-faint">Logiciels CGP classiques</th>
+                        <th className="border-b border-rule-strong px-6 py-4 text-center font-normal text-ink-faint">ChatGPT générique</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {COMPARISON_ROWS.map((row) => (
+                        <tr key={row.label}>
+                          <td className="border-b border-rule py-4 pr-6 font-medium text-ink">{row.label}</td>
+                          <td className="border-x border-b border-rule bg-paper-alt px-6 py-4 text-center font-medium text-ink">{row.hector}</td>
+                          <td className="border-b border-rule px-6 py-4 text-center text-ink-soft">{row.classique}</td>
+                          <td className="border-b border-rule px-6 py-4 text-center text-ink-soft">{row.gpt}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 right-6 w-10 bg-gradient-to-l from-paper to-transparent lg:hidden"
+                />
               </div>
             </div>
           </section>

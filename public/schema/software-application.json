@@ -8,6 +8,16 @@
   "operatingSystem": "Web",
   "description": "Hector consolide le suivi patrimonial d'un cabinet de gestion de patrimoine, déclenche relances et rapprochements, et livre le travail fini via WhatsApp.",
   "inLanguage": "fr",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://agentimpact.fr/#organization",
+    "name": "AgentImpact",
+    "url": "https://agentimpact.fr",
+    "founder": {
+      "@type": "Person",
+      "name": "Nadir Lahyani"
+    }
+  },
   "offers": [
     {
       "@type": "Offer",

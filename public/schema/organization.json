@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://agentimpact.fr/#organization",
+  "name": "AgentImpact",
+  "url": "https://agentimpact.fr",
+  "founder": {
+    "@type": "Person",
+    "name": "Nadir Lahyani"
+  }
+}

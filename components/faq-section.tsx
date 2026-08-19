@@ -44,23 +44,25 @@ export function FaqSection() {
             const isOpen = openIndex === i;
             return (
               <div key={item.q}>
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-6 py-5 text-left"
-                >
-                  <span className="font-medium text-ink">{item.q}</span>
-                  <svg
-                    className={`shrink-0 text-gold-ink transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
+                <h3>
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-6 py-5 text-left"
                   >
-                    <path d="M9 2v14M2 9h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                </button>
+                    <span className="font-medium text-ink">{item.q}</span>
+                    <svg
+                      className={`shrink-0 text-gold-ink transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                    >
+                      <path d="M9 2v14M2 9h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </h3>
                 <div
                   className="overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out"
                   style={{ display: "grid", gridTemplateRows: isOpen ? "1fr" : "0fr" }}
