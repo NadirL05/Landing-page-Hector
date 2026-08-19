@@ -31,7 +31,7 @@ export function FaqSection() {
   return (
     <section className="border-t border-rule" id="faq">
       <JsonLd src="/schema/faq.json" />
-      <div className="mx-auto max-w-3xl px-6 py-24 lg:py-28">
+      <div className="mx-auto max-w-3xl px-safe py-24 lg:py-28">
         <ScrollReveal className="mb-12 max-w-xl">
           <p className="letter-kicker mb-3 text-ink-faint">Questions fréquentes</p>
           <h2 className="text-display-lg font-display text-ink">

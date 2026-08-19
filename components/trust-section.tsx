@@ -33,7 +33,7 @@ const PILLARS = [
 export function TrustSection() {
   return (
     <section className="border-t border-rule" id="confiance">
-      <div className="mx-auto max-w-5xl px-6 py-24 lg:py-28">
+      <div className="mx-auto max-w-5xl px-safe py-24 lg:py-28">
         <ScrollReveal className="mb-14 max-w-2xl">
           <p className="letter-kicker mb-3 text-ink-faint">Avant même le lancement</p>
           <h2 className="text-display-lg font-display text-ink">

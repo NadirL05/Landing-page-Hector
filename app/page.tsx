@@ -60,7 +60,7 @@ export default function Home() {
             capitales espacées, sous-titre en italique, liens texte plats
             (jamais de bouton pilule dans le header). Réf Titan masthead. */}
         <header className="border-b border-rule bg-paper">
-          <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+          <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-safe">
             <div>
               <p className="text-lg font-semibold tracking-[0.14em] text-ink">HECTOR</p>
               <p className="hidden font-display text-xs italic text-ink-faint sm:block">Pour cabinets de gestion de patrimoine indépendants</p>
@@ -83,7 +83,7 @@ export default function Home() {
               planche de rapport ("Fig. 1"), pas un collage de deux
               mockups pivotés qui se chevauchent (tic dark-fintech). */}
           <section className="border-b border-rule">
-            <div className="mx-auto max-w-6xl px-6 pb-20 pt-16 lg:pb-28 lg:pt-20">
+            <div className="mx-auto max-w-6xl px-safe pb-20 pt-16 lg:pb-28 lg:pt-20">
               <div className="grid items-start gap-16 lg:grid-cols-12">
                 <div className="lg:col-span-7">
                   <p className="letter-kicker mb-6 text-ink-faint">Pour CGPI indépendants</p>
@@ -127,7 +127,7 @@ export default function Home() {
 
           {/* ===== ÉTAPES ===== */}
           <section className="border-b border-rule bg-paper-alt">
-            <div className="mx-auto max-w-6xl px-6 py-20">
+            <div className="mx-auto max-w-6xl px-safe py-20">
               <div className="grid gap-0 divide-y divide-rule-strong lg:grid-cols-3 lg:divide-x lg:divide-y-0">
                 {STEPS.map((s, i) => (
                   <ScrollReveal key={s.n} delayMs={i * 100} className="px-6 py-8 first:pl-0 last:pr-0 lg:py-0">
@@ -143,7 +143,7 @@ export default function Home() {
           {/* ===== DOULEURS =====
               Liste à filets, registre "clauses d'un courrier", pas une
               grille de cartes avec fond de survol coloré. */}
-          <section className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
+          <section className="mx-auto max-w-6xl px-safe py-24 lg:py-28">
             <ScrollReveal className="mb-14 max-w-xl">
               <p className="letter-kicker mb-3 text-ink-faint">Le quotidien</p>
               <h2 className="text-display-lg font-display text-ink">
@@ -165,7 +165,7 @@ export default function Home() {
               en note de bas de page — pas de fond gold/blanc translucide
               façon carte SaaS. */}
           <section className="border-t border-rule bg-paper-alt" id="demo">
-            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
+            <div className="mx-auto max-w-6xl px-safe py-24 lg:py-28">
               <ScrollReveal className="mb-16 max-w-xl">
                 <p className="letter-kicker mb-3 text-ink-faint">Ce que ça change</p>
                 <h2 className="text-display-lg font-display text-ink">Deux bénéfices, dans cet ordre</h2>
@@ -193,7 +193,7 @@ export default function Home() {
 
           {/* ===== TABLE COMPARATIVE — feuille de comparaison à filets ===== */}
           <section className="border-t border-rule">
-            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
+            <div className="mx-auto max-w-6xl px-safe py-24 lg:py-28">
               <ScrollReveal className="mb-14 max-w-xl">
                 <p className="letter-kicker mb-3 text-ink-faint">Positionnement</p>
                 <h2 className="text-display-lg font-display text-ink">Ce que les autres ne font pas</h2>
@@ -232,7 +232,7 @@ export default function Home() {
           {/* ===== TARIFS — feuille tarifaire à filets, pas deux cartes
               concurrentes avec badge pilule ===== */}
           <section className="border-t border-rule" id="tarifs">
-            <div className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
+            <div className="mx-auto max-w-6xl px-safe py-24 lg:py-28">
               <ScrollReveal className="mb-14 max-w-xl">
                 <p className="letter-kicker mb-3 text-ink-faint">Tarifs</p>
                 <h2 className="text-display-lg font-display text-ink">Un collaborateur, un abonnement simple</h2>
@@ -267,7 +267,7 @@ export default function Home() {
               Unique bande d'encre profonde de la page : clôture de lettre,
               pas une alternance systématique clair/sombre par section. */}
           <section className="grain-paper border-t border-rule bg-seal">
-            <ScrollReveal className="relative mx-auto max-w-2xl px-6 py-24 text-center lg:py-28">
+            <ScrollReveal className="relative mx-auto max-w-2xl px-safe py-24 text-center lg:py-28">
               <WealthSeal className="mb-8" />
               <h2 className="text-display-lg mb-6 font-display text-seal-paper">
                 Votre cabinet mérite un collaborateur, pas un logiciel de plus
@@ -288,7 +288,7 @@ export default function Home() {
         </main>
 
         <footer className="border-t border-rule">
-          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 text-xs text-ink-faint">
+          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-safe text-xs text-ink-faint">
             <span>© {new Date().getFullYear()} Hector</span>
             <div className="flex gap-6">
               <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>

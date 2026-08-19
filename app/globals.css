@@ -60,6 +60,24 @@ html {
   background-color: var(--color-paper);
   color: var(--color-ink);
   scroll-behavior: smooth;
+  /* Empêche le rebond élastique iOS (rubber-band overscroll) de révéler
+     le fond cream de <html> sous la bande d'encre "sceau" en clôture de
+     page — sans ça, le bounce en bas de scroll fait apparaître un bandeau
+     clair non stylé sous le sceau sombre, lu comme "espace non habillé". */
+  overscroll-behavior-y: none;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+/* Marge de page qui respecte les encoches iOS/Android en paysage — les
+   sections plein-bleed (masthead, sceau) doivent dégager l'encoche/la
+   zone de geste, sans réduire la marge de lecture 24px en portrait où
+   l'inset de sécurité est nul. */
+.px-safe {
+  padding-left: max(1.5rem, env(safe-area-inset-left));
+  padding-right: max(1.5rem, env(safe-area-inset-right));
 }
 
 @media (prefers-reduced-motion: reduce) {
