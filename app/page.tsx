@@ -20,10 +20,11 @@ import { WealthSeal } from "@/components/wealth-seal";
 // single-sentence, emoji remplacés par filet/typographie, "Bilan
 // Patrimonial" → "Bilan patrimonial" (pas un nom de marque déposé).
 
-// Liens de paiement Stripe (mode TEST — compte Hector, pas de vrai argent
-// tant que non basculé en live) et prise de RDV Calendly.
-const STRIPE_LINK_MONTHLY = "https://buy.stripe.com/test_eVqcN65rdgYLblSaCP1Fe00";
-const STRIPE_LINK_YEARLY = "https://buy.stripe.com/test_8x2dRabPBcIvey46mz1Fe01";
+// Prise de RDV Calendly. Les CTA tarifs pointaient auparavant vers des liens
+// Stripe en mode TEST — retiré : pas de vrai paiement possible, et le prix
+// est explicitement une hypothèse non validée (voir mention sous le tableau
+// tarifaire). Tant que la vente n'est pas confirmée, tout CTA d'achat
+// redirige vers une prise de RDV réelle plutôt qu'un paiement inerte.
 const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30min";
 
 const STEPS = [
@@ -48,8 +49,8 @@ const COMPARISON_ROWS = [
 ] as const;
 
 const TARIFS = [
-  { periode: "Mensuel", prix: "149 €", unite: "/ mois", note: "—", cta: "Commencer gratuitement", href: STRIPE_LINK_MONTHLY },
-  { periode: "Annuel", prix: "1 490 €", unite: "/ an", note: "soit 124 €/mois · 2 mois offerts", cta: "Commencer gratuitement", href: STRIPE_LINK_YEARLY },
+  { periode: "Mensuel", prix: "149 €", unite: "/ mois", note: "—", cta: "Réserver une démo", href: CALENDLY_URL },
+  { periode: "Annuel", prix: "1 490 €", unite: "/ an", note: "soit 124 €/mois · 2 mois offerts", cta: "Réserver une démo", href: CALENDLY_URL },
 ] as const;
 
 export default function Home() {
@@ -268,7 +269,7 @@ export default function Home() {
                       </div>
                       {t.note !== "—" && <p className="mt-1 text-xs text-gold-ink">{t.note}</p>}
                     </div>
-                    <a href={t.href} className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-ink px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper">
+                    <a href={t.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-ink px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper">
                       {t.cta}
                     </a>
                   </div>
