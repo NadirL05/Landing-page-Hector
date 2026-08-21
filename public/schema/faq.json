@@ -15,7 +15,7 @@
       "name": "Mes données sont sensibles, comment sont-elles protégées ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet dispose d'un accès isolé. Aucune décision d'investissement n'est prise automatiquement — Hector prépare, vous validez toujours."
+        "text": "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet aura un accès isolé. Aucune décision d'investissement n'est prise automatiquement — Hector prépare, vous validez toujours."
       }
     },
     {

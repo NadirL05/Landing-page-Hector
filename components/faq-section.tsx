@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "Mes données sont sensibles, comment sont-elles protégées ?",
-    a: "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet dispose d'un accès isolé. Aucune décision d'investissement n'est prise automatiquement — Hector prépare, vous validez toujours.",
+    a: "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet aura un accès isolé. Aucune décision d'investissement n'est prise automatiquement — Hector prépare, vous validez toujours.",
   },
   {
     q: "J'ai déjà Harvest, à quoi bon Hector ?",

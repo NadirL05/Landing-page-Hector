@@ -105,7 +105,7 @@ export default function Home() {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-ink bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-transparent hover:text-ink">
-                      Commencer gratuitement
+                      Voir les tarifs
                     </a>
                     <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-rule-strong px-6 py-3 text-sm font-medium text-ink-soft transition-colors hover:border-ink hover:text-ink">
                       Voir un bilan en live
@@ -302,7 +302,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a href="#tarifs" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-seal-paper bg-seal-paper px-7 py-3.5 text-sm font-medium text-seal transition-colors hover:bg-transparent hover:text-seal-paper">
-                  Commencer gratuitement
+                  Voir les tarifs
                 </a>
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[var(--radius-btn)] border border-seal-soft px-7 py-3.5 text-sm font-medium text-seal-paper transition-colors hover:border-seal-paper">
                   Voir un bilan en live

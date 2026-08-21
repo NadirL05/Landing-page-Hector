@@ -23,7 +23,7 @@ interface ProcessingRow {
 // pas d'invention d'un régime de traitement pour un produit Hector qui
 // n'existe pas encore (pas de WhatsApp, pas de données patrimoniales).
 // Vérifiés un par un contre app/page.tsx :
-//   - Stripe  → liens de paiement STRIPE_LINK_MONTHLY/YEARLY (mode test)
+//   - Stripe  → liens de paiement STRIPE_LINK_MONTHLY/YEARLY (mode LIVE depuis le 21/08/2026)
 //   - Calendly → CALENDLY_URL, ouvert dans un nouvel onglet
 //   - Vercel  → hébergement de ce site
 const PROCESSINGS: readonly ProcessingRow[] = [
@@ -34,10 +34,10 @@ const PROCESSINGS: readonly ProcessingRow[] = [
     retention: "3 ans à compter du dernier contact",
   },
   {
-    purpose: "Inscription via le lien de paiement (actuellement en mode test)",
+    purpose: "Inscription via le lien de paiement (mode réel)",
     data: "Nom, adresse e-mail et informations de paiement traitées directement par Stripe",
-    legalBasis: "Mesures précontractuelles à la demande de la personne",
-    retention: "3 ans à compter du dernier contact",
+    legalBasis: "Exécution du contrat de réservation",
+    retention: "3 ans à compter du dernier contact, hors durées de conservation légales propres à Stripe pour les données de facturation",
   },
 ];
 
@@ -46,7 +46,7 @@ const PROCESSORS: readonly { name: string; role: string }[] = [
   { name: "Calendly LLC", role: "Prise de rendez-vous en ligne (widget ouvert sur calendly.com)" },
   {
     name: "Stripe Payments Europe, Ltd.",
-    role: "Traitement des paiements via les liens de paiement Stripe (actuellement en mode test, aucun débit réel)",
+    role: "Traitement des paiements via les liens de paiement Stripe (mode réel — un paiement effectué est un débit réel)",
   },
 ];
 
@@ -137,12 +137,13 @@ export default function ConfidentialitePage() {
           </p>
         </LegalSection>
 
-        <LegalSection title="5. Paiement (mode test)">
+        <LegalSection title="5. Paiement">
           <p>
-            Le lien de paiement affiché sur cette page fonctionne actuellement en mode test Stripe : aucune somme
-            réelle n&apos;est débitée. Les informations de paiement (numéro de carte, etc.) ne transitent jamais par
-            les serveurs de ce site : elles sont saisies directement sur l&apos;interface sécurisée de Stripe, seul
-            responsable de leur traitement conformément à sa propre politique de confidentialité.
+            Le lien de paiement affiché sur cette page fonctionne en <strong>mode réel</strong> : un paiement effectué
+            constitue un débit réel, traité par Stripe. Les informations de paiement (numéro de carte, etc.) ne
+            transitent jamais par les serveurs de ce site : elles sont saisies directement sur l&apos;interface
+            sécurisée de Stripe, seul responsable de leur traitement conformément à sa propre politique de
+            confidentialité.
           </p>
         </LegalSection>
 

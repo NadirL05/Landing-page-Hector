@@ -56,9 +56,11 @@ export default function MentionsLegalesPage() {
         <LegalSection title="3. Statut du produit">
           <p>
             Hector est en phase de pré-lancement : cette page présente le produit à venir et permet de réserver une
-            démonstration ou de s&apos;inscrire via un lien de paiement Stripe actuellement en mode test. Aucune donnée
-            patrimoniale n&apos;est traitée par un produit encore en construction ; seules les informations transmises
-            via les outils décrits dans la{" "}
+            démonstration ou de s&apos;inscrire via un lien de paiement Stripe. Ce lien de paiement est en{" "}
+            <strong>mode réel</strong> (un paiement effectué est un débit réel, traité par Stripe) : il réserve une
+            place et donne accès à un accompagnement de lancement, en amont de la mise à disposition complète du
+            produit. Aucune donnée patrimoniale n&apos;est traitée par un produit encore en construction ; seules les
+            informations transmises via les outils décrits dans la{" "}
             <a href="/confidentialite" className="underline decoration-gold underline-offset-4 transition-colors hover:text-ink">
               politique de confidentialité
             </a>{" "}
