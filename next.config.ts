@@ -10,13 +10,17 @@ import type { NextConfig } from "next";
 //   depending on the WebGL backend — allow blob: defensively so the 3D scene never silently
 //   fails under CSP.
 // - `img-src`/`font-src 'self' data:`: next/image and next/font inline small assets as data URIs.
+// GoogleTag/MetaPixel/CMP ajoutés le 21/08 (même compte consentmanager.net
+// que plu-ia-work, id 175740) : chargent des scripts externes, sans ces
+// domaines en script-src la CSP les bloquait silencieusement (cf. incident
+// GA4 plu-ia-work — voir CLAUDE.md de ce repo-là).
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://cdn.consentmanager.net https://*.delivery.consentmanager.net",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://www.facebook.com https://cdn.consentmanager.net",
   "font-src 'self' data:",
-  "connect-src 'self'",
+  "connect-src 'self' https://www.google-analytics.com https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net https://consentmanager.mgr.consensu.org",
   "worker-src 'self' blob:",
   "frame-src 'none'",
   "object-src 'none'",

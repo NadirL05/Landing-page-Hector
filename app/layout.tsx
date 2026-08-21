@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
+import { ConsentGate } from "@/components/analytics/consent-gate";
+import { GoogleTag } from "@/components/analytics/google-tag";
+import { MetaPixel } from "@/components/analytics/meta-pixel";
 import "./globals.css";
 
 const inter = Inter({
@@ -67,7 +70,40 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={`${inter.variable} ${fraunces.variable}`}>
-      <body>{children}</body>
+      <head>
+        {/*
+         * consentmanager.net (CMP) : même compte que plu-ia-work (id
+         * 175740, domaine racine agentimpact.fr couvre les sous-domaines,
+         * config fournisseurs déjà correcte — Facebook Meta → Marketing,
+         * Google Analytics → Mesure). Positionnement en tête de <head> :
+         * n'atteint pas leur prérequis "premier script du document" sous
+         * Next.js App Router — sans conséquence, ConsentGate ne dépend pas
+         * de leur "automatic blocking" DOM, seulement du dataLayer Consent
+         * Mode v2 qu'ils y poussent.
+         */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
+          type="text/javascript"
+          data-cmp-ab="1"
+          src="https://cdn.consentmanager.net/delivery/autoblocking/a9d3fcbcd2398.js"
+          data-cmp-host="a.delivery.consentmanager.net"
+          data-cmp-cdn="cdn.consentmanager.net"
+          data-cmp-codesrc="16"
+        />
+      </head>
+      <body>
+        {/*
+         * GoogleTag/MetaPixel ne se montent qu'après consentement (Google
+         * Consent Mode v2, lu depuis dataLayer — voir consent-gate.tsx).
+         */}
+        <ConsentGate category="analytics">
+          <GoogleTag />
+        </ConsentGate>
+        <ConsentGate category="marketing">
+          <MetaPixel />
+        </ConsentGate>
+        {children}
+      </body>
     </html>
   );
 }
