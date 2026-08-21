@@ -18,7 +18,12 @@ const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://cdn.consentmanager.net https://*.delivery.consentmanager.net",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://www.facebook.com https://cdn.consentmanager.net",
+  // *.delivery.consentmanager.net : le pixel de preuve de consentement
+  // (/delivery/info/) tourne sur le sous-domaine wildcard, pas sur
+  // cdn.consentmanager.net — sans lui, bloqué sur chaque page vue, avant
+  // toute interaction (confirmé via console Playwright réelle le 21/08,
+  // audit SEO). Wildcard déjà présent en connect-src, manquait en img-src.
+  "img-src 'self' data: blob: https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net",
   "font-src 'self' data:",
   "connect-src 'self' https://www.google-analytics.com https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net https://consentmanager.mgr.consensu.org",
   "worker-src 'self' blob:",

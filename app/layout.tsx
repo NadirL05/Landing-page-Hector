@@ -81,8 +81,19 @@ export default function RootLayout({
          * de leur "automatic blocking" DOM, seulement du dataLayer Consent
          * Mode v2 qu'ils y poussent.
          */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        {/*
+         * cmp_setlang="FR" : force le français côté bannière au lieu de
+         * suivre la langue du navigateur (fallback EN sinon — paramètre
+         * officiel `cmp_setlang`, doc consentmanager.net "client-side
+         * configuration options"). Contenu statique, pas d'input externe.
+         * `async` : audit SEO 2026-08-21, le script synchrone faisait de la
+         * bannière elle-même l'élément LCP (render-blocking) ; ConsentGate
+         * ne dépendant pas de l'automatic-blocking DOM (cf. ci-dessus),
+         * async est sans risque.
+         */}
+        <script>{'window.cmp_setlang="FR";'}</script>
         <script
+          async
           type="text/javascript"
           data-cmp-ab="1"
           src="https://cdn.consentmanager.net/delivery/js/semiautomatic.min.js"
