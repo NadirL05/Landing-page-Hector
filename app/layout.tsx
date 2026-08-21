@@ -85,10 +85,11 @@ export default function RootLayout({
         <script
           type="text/javascript"
           data-cmp-ab="1"
-          src="https://cdn.consentmanager.net/delivery/autoblocking/a9d3fcbcd2398.js"
+          src="https://cdn.consentmanager.net/delivery/js/semiautomatic.min.js"
+          data-cmp-cdid="a9d3fcbcd2398"
           data-cmp-host="a.delivery.consentmanager.net"
           data-cmp-cdn="cdn.consentmanager.net"
-          data-cmp-codesrc="16"
+          data-cmp-codesrc="0"
         />
       </head>
       <body>
