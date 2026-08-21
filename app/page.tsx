@@ -187,7 +187,7 @@ export default function Home() {
               <div className="grid gap-px overflow-hidden border border-rule bg-rule lg:grid-cols-2">
                 <ScrollReveal className="bg-paper p-10">
                   <p className="footnote-mark mb-3 font-display text-sm text-gold-ink">1</p>
-                  <p className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Vos livrables deviennent votre argument commercial</p>
+                  <h3 className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Vos livrables deviennent votre argument commercial</h3>
                   <p className="leading-relaxed text-ink-soft">
                     Un bilan patrimonial interactif, brandé à votre cabinet, envoyé en 20 minutes : c&apos;est le livrable que vos clients montrent à leur entourage. Votre visibilité, votre revenu.
                   </p>
@@ -195,7 +195,7 @@ export default function Home() {
                 </ScrollReveal>
                 <ScrollReveal delayMs={80} className="bg-paper p-10">
                   <p className="footnote-mark mb-3 font-display text-sm text-ink-faint">2</p>
-                  <p className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Le répétitif tourne seul</p>
+                  <h3 className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Le répétitif tourne seul</h3>
                   <p className="leading-relaxed text-ink-soft">
                     Surveillance des portefeuilles, relances automatiques, alertes d&apos;anomalie — Hector s&apos;en occupe pendant que vous conseillez. Moins de charge mentale, plus de disponibilité pour vos clients.
                   </p>

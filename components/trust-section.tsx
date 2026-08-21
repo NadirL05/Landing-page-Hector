@@ -66,7 +66,7 @@ export function TrustSection() {
         </ol>
 
         <ScrollReveal delayMs={100} className="mt-10 flex items-start gap-3 border-t border-rule pt-8">
-          <svg className="mt-0.5 shrink-0 text-emerald-ink" width="16" height="16" viewBox="0 0 18 18" fill="none">
+          <svg className="mt-0.5 shrink-0 text-emerald-ink" width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.3" />
             <path d="M6 9.2l2 2 4-4.4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

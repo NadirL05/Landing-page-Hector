@@ -58,6 +58,7 @@ export function FaqSection() {
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
+                      aria-hidden="true"
                     >
                       <path d="M9 2v14M2 9h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
