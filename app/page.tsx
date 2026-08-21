@@ -20,12 +20,16 @@ import { WealthSeal } from "@/components/wealth-seal";
 // single-sentence, emoji remplacés par filet/typographie, "Bilan
 // Patrimonial" → "Bilan patrimonial" (pas un nom de marque déposé).
 
-// Prise de RDV Calendly. Les CTA tarifs pointaient auparavant vers des liens
-// Stripe en mode TEST — retiré : pas de vrai paiement possible, et le prix
-// est explicitement une hypothèse non validée (voir mention sous le tableau
-// tarifaire). Tant que la vente n'est pas confirmée, tout CTA d'achat
-// redirige vers une prise de RDV réelle plutôt qu'un paiement inerte.
+// Prise de RDV Calendly, en option secondaire sous les CTA de paiement.
 const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30min";
+
+// Liens de paiement Stripe (mode LIVE — compte "Agentimpact-Hector AI",
+// basculé le 21/08/2026). Le prix reste une hypothèse en cours de
+// validation commerciale (voir mention sous le tableau tarifaire) —
+// paiement réel disponible, mais aucune garantie de tarif définitif tant
+// que ce n'est pas confirmé.
+const STRIPE_LINK_MONTHLY = "https://buy.stripe.com/28E5kE3sG8QW4Yd6QhcZa00";
+const STRIPE_LINK_YEARLY = "https://buy.stripe.com/9B6aEYfbo5EK76l8YpcZa01";
 
 const STEPS = [
   { n: "I", label: "Connecter", desc: "Hector se greffe sur vos outils existants — Harvest, Linxea, ou tout autre logiciel de votre cabinet. Aucune migration, aucun lock-in." },
@@ -49,8 +53,8 @@ const COMPARISON_ROWS = [
 ] as const;
 
 const TARIFS = [
-  { periode: "Mensuel", prix: "149 €", unite: "/ mois", note: "—", cta: "Réserver une démo", href: CALENDLY_URL },
-  { periode: "Annuel", prix: "1 490 €", unite: "/ an", note: "soit 124 €/mois · 2 mois offerts", cta: "Réserver une démo", href: CALENDLY_URL },
+  { periode: "Mensuel", prix: "149 €", unite: "/ mois", note: "—", cta: "Commencer", href: STRIPE_LINK_MONTHLY },
+  { periode: "Annuel", prix: "1 490 €", unite: "/ an", note: "soit 124 €/mois · 2 mois offerts", cta: "Commencer", href: STRIPE_LINK_YEARLY },
 ] as const;
 
 export default function Home() {
