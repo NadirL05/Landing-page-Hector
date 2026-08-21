@@ -4,8 +4,14 @@
   "@id": "https://agentimpact.fr/#organization",
   "name": "AgentImpact",
   "url": "https://agentimpact.fr",
+  "logo": "https://hector.agentimpact.fr/icon-512.png",
   "founder": {
     "@type": "Person",
-    "name": "Nadir Lahyani"
-  }
+    "name": "Nadir Lahyani",
+    "sameAs": "https://www.linkedin.com/in/nadir-lahyani"
+  },
+  "sameAs": [
+    "https://agentimpact.fr",
+    "https://www.linkedin.com/in/nadir-lahyani"
+  ]
 }
