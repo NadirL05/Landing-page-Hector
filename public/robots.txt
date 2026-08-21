@@ -1,3 +1,5 @@
+License: https://hector.agentimpact.fr/rsl.xml
+
 # Content Signals — déclaration des préférences IA (contentsignals.org)
 # ai-train=no  : refus d'entraîner des modèles avec le contenu
 # search=yes   : indexation autorisée pour la recherche IA
