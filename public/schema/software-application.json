@@ -28,7 +28,11 @@
         "@type": "UnitPriceSpecification",
         "price": "149",
         "priceCurrency": "EUR",
-        "billingDuration": "P1M"
+        "billingDuration": {
+          "@type": "QuantitativeValue",
+          "value": 1,
+          "unitCode": "MON"
+        }
       }
     },
     {
@@ -40,7 +44,11 @@
         "@type": "UnitPriceSpecification",
         "price": "1490",
         "priceCurrency": "EUR",
-        "billingDuration": "P1Y"
+        "billingDuration": {
+          "@type": "QuantitativeValue",
+          "value": 1,
+          "unitCode": "ANN"
+        }
       }
     }
   ]

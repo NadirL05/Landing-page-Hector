@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "Mes données sont sensibles, comment sont-elles protégées ?",
-    a: "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet aura un accès isolé. Aucune décision d'investissement n'est prise automatiquement — Hector prépare, vous validez toujours.",
+    a: "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet dispose d'un accès isolé, sans mutualisation de données entre clients : ce que voit un cabinet reste strictement le sien. Les données sont chiffrées au repos et en transit, avec un hébergement prévu en Union européenne — cohérent avec les exigences d'un secteur réglementé. Surtout, aucune décision d'investissement n'est jamais prise automatiquement : Hector consolide, alerte et prépare le travail, mais la décision reste toujours celle du CGPI, conformément au principe de non-substitution au conseil réglementé.",
   },
   {
     q: "J'ai déjà Harvest, à quoi bon Hector ?",
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "Hector est-il déjà disponible ?",
-    a: "Hector est en phase de construction avec un nombre restreint de cabinets pilotes. Réservez une démonstration pour être prioritaire à l'ouverture et influencer les premières fonctionnalités livrées.",
+    a: "Hector est en phase de construction, avec un nombre restreint de cabinets pilotes. La feuille de route se bâtit avec ces premiers utilisateurs plutôt que dans l'abstrait : chaque fonctionnalité livrée répond à un besoin réel observé sur le terrain, pas à une hypothèse produit isolée. Les tarifs affichés sont une hypothèse en cours de validation commerciale, jamais présentée comme un tarif final imposé. Réserver une démonstration permet d'être prioritaire à l'ouverture et d'influencer directement les premières fonctionnalités livrées.",
   },
 ] as const;
 
