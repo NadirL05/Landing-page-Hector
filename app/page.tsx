@@ -23,13 +23,15 @@ import { WealthSeal } from "@/components/wealth-seal";
 // Prise de RDV Calendly, en option secondaire sous les CTA de paiement.
 const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30min";
 
-// Liens de paiement Stripe (mode LIVE — compte "Agentimpact-Hector AI",
-// basculé le 21/08/2026). Le prix reste une hypothèse en cours de
-// validation commerciale (voir mention sous le tableau tarifaire) —
-// paiement réel disponible, mais aucune garantie de tarif définitif tant
-// que ce n'est pas confirmé.
-const STRIPE_LINK_MONTHLY = "https://buy.stripe.com/28E5kE3sG8QW4Yd6QhcZa00";
-const STRIPE_LINK_YEARLY = "https://buy.stripe.com/9B6aEYfbo5EK76l8YpcZa01";
+// Audit sécu 24/08 (SEC-13) : ces liens pointaient DIRECTEMENT sur un
+// Payment Link Stripe brut, avant toute création de compte. Payer ne créait
+// aucun lien "ce paiement ↔ ce cabinet" côté outil — un compte Clerk créé
+// sans jamais passer par Stripe obtenait le même accès complet qu'un compte
+// payant. Le CTA pointe désormais vers l'inscription ; l'outil bloque
+// ensuite l'accès (redirect /choose-plan) tant qu'un Checkout Session
+// Stripe — créé côté API avec client_reference_id=cabinet_id — n'est pas
+// allé au bout. Voir patrimoine/apps/api/routers/billing.py.
+const APP_SIGNUP_URL = "https://app-hector.agentimpact.fr/sign-up";
 
 const STEPS = [
   { n: "I", label: "Connecter", desc: "Hector se greffe sur vos outils existants — Harvest, Linxea, ou tout autre logiciel de votre cabinet. Aucune migration, aucun lock-in." },
@@ -53,8 +55,8 @@ const COMPARISON_ROWS = [
 ] as const;
 
 const TARIFS = [
-  { periode: "Mensuel", prix: "149 €", unite: "/ mois", note: "—", cta: "Commencer", href: STRIPE_LINK_MONTHLY },
-  { periode: "Annuel", prix: "1 490 €", unite: "/ an", note: "soit 124 €/mois · 2 mois offerts", cta: "Commencer", href: STRIPE_LINK_YEARLY },
+  { periode: "Mensuel", prix: "149 €", unite: "/ mois", note: "—", cta: "Commencer", href: APP_SIGNUP_URL },
+  { periode: "Annuel", prix: "1 490 €", unite: "/ an", note: "soit 124 €/mois · 2 mois offerts", cta: "Commencer", href: APP_SIGNUP_URL },
 ] as const;
 
 export default function Home() {
