@@ -8,7 +8,9 @@ export function MetaPixel() {
   // .trim() : voir google-tag.tsx — un env var Vercel collé avec un
   // retour à la ligne casse la string JS inline en dur, silencieusement.
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
-  if (!pixelId) return null;
+  // Audit sécu 24/08 : valide le format avant interpolation dans la string
+  // JS inline (même raisonnement que google-tag.tsx).
+  if (!pixelId || !/^\d+$/.test(pixelId)) return null;
 
   return (
     <>
@@ -22,7 +24,7 @@ export function MetaPixel() {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${pixelId}');
+          fbq('init', ${JSON.stringify(pixelId)});
           fbq('track', 'PageView');
         `}
       </Script>

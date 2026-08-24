@@ -14,10 +14,19 @@ import Script from "next/script";
  * plu-ia-work on 21/08 (silently: no CSP violation, no network error,
  * gtag.js loaded fine, only `window.gtag` staying undefined gave it away).
  */
+// Audit sécu 24/08 : ces IDs sont build-time trusted (env var, pas une
+// entrée utilisateur) donc le risque est théorique — mais une valeur
+// malformée (guillemet, retour à la ligne collé) casse déjà silencieusement
+// ce composant (cf. incident plu-ia-work documenté ci-dessus). Ce format
+// valide les IDs avant interpolation plutôt que de les injecter tels quels.
+const GTAG_ID_PATTERN = /^(G|AW|GT)-[A-Za-z0-9-]+$/;
+
 export function GoogleTag() {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
   const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID?.trim();
-  const targets = [gaId, adsId].filter((id): id is string => Boolean(id));
+  const targets = [gaId, adsId]
+    .filter((id): id is string => Boolean(id))
+    .filter((id) => GTAG_ID_PATTERN.test(id));
 
   if (targets.length === 0) return null;
 
@@ -34,7 +43,7 @@ export function GoogleTag() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          ${targets.map((id) => `gtag('config', '${id}');`).join("\n          ")}
+          ${targets.map((id) => `gtag('config', ${JSON.stringify(id)});`).join("\n          ")}
         `}
       </Script>
     </>

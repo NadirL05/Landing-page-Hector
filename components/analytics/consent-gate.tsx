@@ -52,32 +52,54 @@ function readConsentState(category: ConsentCategory): boolean {
   return false;
 }
 
+// Audit sécu 24/08 : chaque instance de ConsentGate (une par catégorie,
+// analytics ET marketing) patchait `dataLayer.push` indépendamment, en
+// capturant son propre `originalPush` au montage. Si les deux se
+// démontaient/remontaient dans un ordre différent (re-render, navigation
+// client, StrictMode double-render en dev), le cleanup d'une instance
+// écrasait le wrapper encore actif de l'autre — la propagation des
+// changements de consentement pour une catégorie pouvait alors se figer
+// (le tracking restant actif ou inactif après un changement d'avis
+// utilisateur, un vrai risque RGPD dans un contexte réglementé). Fix :
+// un seul wrapper partagé au niveau module, avec une liste d'abonnés —
+// chaque `ConsentGate` s'abonne/se désabonne sans jamais toucher au
+// wrapper lui-même.
+const subscribers = new Set<() => void>();
+let patched = false;
+
+function ensurePatched(): void {
+  if (patched || typeof window === "undefined") return;
+  patched = true;
+
+  const dataLayer = (window.dataLayer = window.dataLayer || []);
+  const originalPush = dataLayer.push.bind(dataLayer);
+
+  dataLayer.push = (...args: unknown[]) => {
+    const result = originalPush(...args);
+    subscribers.forEach((notify) => notify());
+    return result;
+  };
+}
+
 function useConsent(category: ConsentCategory): boolean {
   // Lazy initializer plutôt qu'un setState dans l'effet ci-dessous : l'état
   // initial (avant tout événement CMP) est lu directement au montage.
   const [granted, setGranted] = useState(() => readConsentState(category));
 
   useEffect(() => {
-    // dataLayer.push n'émet aucun événement DOM natif — on l'intercepte
-    // pour réévaluer le consentement à chaque nouvelle entrée poussée
-    // par le CMP (accept/refuse dans la bannière, changement ultérieur).
-    const dataLayer = (window.dataLayer = window.dataLayer || []);
-    const originalPush = dataLayer.push.bind(dataLayer);
+    ensurePatched();
 
-    dataLayer.push = (...args: unknown[]) => {
-      const result = originalPush(...args);
-      setGranted(readConsentState(category));
-      return result;
-    };
+    const notify = () => setGranted(readConsentState(category));
+    subscribers.add(notify);
 
     // Filet de sécurité : l'API __cmp propriétaire notifie aussi les
     // changements de consentement via son propre système d'événements.
     if (typeof window.__cmp === "function") {
-      window.__cmp("addEventListener", ["consent", () => setGranted(readConsentState(category)), false], null);
+      window.__cmp("addEventListener", ["consent", notify, false], null);
     }
 
     return () => {
-      dataLayer.push = originalPush;
+      subscribers.delete(notify);
     };
   }, [category]);
 
