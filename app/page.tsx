@@ -284,9 +284,6 @@ export default function Home() {
               <p className="mt-6 text-sm text-ink-soft">
                 Module supplémentaire : <span className="font-medium text-ink">+100 € / mois</span>
               </p>
-              <p className="mt-1 text-xs text-ink-faint">
-                Hypothèse tarifaire en cours de validation, pas encore vendue. Nous contacter pour valider votre configuration.
-              </p>
             </div>
           </section>
 
