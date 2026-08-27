@@ -281,9 +281,6 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-sm text-ink-soft">
-                Module supplémentaire : <span className="font-medium text-ink">+100 € / mois</span>
-              </p>
             </div>
           </section>
 

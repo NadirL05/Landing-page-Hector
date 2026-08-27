@@ -23,7 +23,7 @@ Définis dans `app/globals.css` sous `@theme inline` : `--color-brand*` (échell
 - Titres single-sentence : jamais de point final.
 - Pas d'emoji dans le contenu produit (secteur réglementé CGPI) — utiliser liseré de couleur / SVG à la place.
 - "Bilan patrimonial" en bas de casse (pas "Bilan Patrimonial" — pas un nom de marque déposé).
-- Tarifs (149€/mois, 1490€/an) : **validés commercialement (26/08/2026)** — la mention "Hypothèse tarifaire en cours de validation" a été retirée. Le module supplémentaire +100€/mois reste, lui, sans confirmation de vente à ce jour ; ne pas ajouter cette même mention ailleurs sans redemander confirmation à Nadir.
+- Tarifs (149€/mois, 1490€/an) : **validés commercialement (26/08/2026)** — la mention "Hypothèse tarifaire en cours de validation" a été retirée. Le "module supplémentaire +100€/mois" a été retiré le 27/08 (jamais confirmé commercialement, non expliqué sur la page — voir étude de tarification). Ne pas le réintroduire sans un module réellement défini (nom, périmètre, prix validé).
 - JSON-LD : URL canonique = `https://hector.agentimpact.fr`, jamais un placeholder.
 - Toute donnée chiffrée (KPI, %, exemples de bilan) doit être explicitement labellisée "exemple illustratif" — ne jamais laisser un chiffre passer pour une donnée client réelle.
 
