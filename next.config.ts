@@ -26,7 +26,12 @@ const CSP = [
   // audit SEO). Wildcard déjà présent en connect-src, manquait en img-src.
   "img-src 'self' data: blob: https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net",
   "font-src 'self' data:",
-  "connect-src 'self' https://www.google-analytics.com https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net https://consentmanager.mgr.consensu.org",
+  // app-hector.agentimpact.fr : API Hector (patrimoine/apps/api) appelée
+  // directement en cross-origin par components/pricing-button.tsx
+  // (POST /api/billing/checkout-public) — sans elle, CSP bloque silencieusement
+  // le clic sur les CTA tarifs (constaté en prod : "Refused to connect because
+  // it violates the document's Content Security Policy").
+  "connect-src 'self' https://app-hector.agentimpact.fr https://www.google-analytics.com https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net https://consentmanager.mgr.consensu.org",
   "worker-src 'self' blob:",
   "frame-src 'none'",
   "object-src 'none'",
