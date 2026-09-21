@@ -309,11 +309,16 @@ export default function Home() {
         </main>
 
         <footer className="border-t border-rule">
-          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-safe text-xs text-ink-faint">
-            <span>© {new Date().getFullYear()} Hector</span>
-            <div className="flex gap-6">
-              <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>
-              <Link href="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
+          <div className="mx-auto max-w-6xl px-safe py-6 text-xs text-ink-faint">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <span>© {new Date().getFullYear()} Hector</span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                <Link href="/assistant-ia-cgpi" className="transition-colors hover:text-ink">Assistant IA pour CGPI</Link>
+                <Link href="/automatisation-cabinet-cgp" className="transition-colors hover:text-ink">Automatisation cabinet CGP</Link>
+                <Link href="/bilan-patrimonial-ia" className="transition-colors hover:text-ink">Bilan patrimonial IA</Link>
+                <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>
+                <Link href="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
+              </div>
             </div>
           </div>
         </footer>

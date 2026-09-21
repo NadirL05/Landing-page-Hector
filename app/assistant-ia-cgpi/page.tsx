@@ -7,6 +7,18 @@ export const metadata: Metadata = {
     "Hector aide les CGPI à automatiser le suivi patrimonial, les relances et la préparation de livrables sans ajouter un nouveau logiciel à piloter.",
   alternates: { canonical: "/assistant-ia-cgpi" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "Assistant IA pour CGPI | Hector",
+    description:
+      "Hector aide les CGPI à automatiser le suivi patrimonial, les relances et la préparation de livrables sans ajouter un nouveau logiciel à piloter.",
+    url: "https://hector.agentimpact.fr/assistant-ia-cgpi",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Assistant IA pour CGPI | Hector",
+    description:
+      "Automatisez suivi patrimonial, relances et préparation de livrables avec Hector.",
+  },
 };
 
 export default function AssistantIaCgpiPage() {

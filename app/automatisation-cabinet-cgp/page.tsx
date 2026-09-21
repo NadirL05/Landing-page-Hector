@@ -7,6 +7,18 @@ export const metadata: Metadata = {
     "Automatisez les tâches répétitives d'un cabinet de gestion de patrimoine avec Hector : suivi, relances, alertes et préparation de livrables.",
   alternates: { canonical: "/automatisation-cabinet-cgp" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "Automatisation d'un cabinet CGP | Hector",
+    description:
+      "Automatisez les tâches répétitives d'un cabinet de gestion de patrimoine avec Hector : suivi, relances, alertes et préparation de livrables.",
+    url: "https://hector.agentimpact.fr/automatisation-cabinet-cgp",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Automatisation d'un cabinet CGP | Hector",
+    description:
+      "Suivi, relances, alertes et préparation de livrables pour les cabinets CGP.",
+  },
 };
 
 export default function AutomatisationCabinetCgpPage() {
