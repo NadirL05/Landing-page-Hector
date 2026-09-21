@@ -7,6 +7,18 @@ export const metadata: Metadata = {
     "Hector aide les CGPI à préparer et transmettre plus rapidement des bilans patrimoniaux exploitables à partir des données suivies par le cabinet.",
   alternates: { canonical: "/bilan-patrimonial-ia" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "Bilan patrimonial avec l'IA | Hector",
+    description:
+      "Hector aide les CGPI à préparer et transmettre plus rapidement des bilans patrimoniaux exploitables à partir des données suivies par le cabinet.",
+    url: "https://hector.agentimpact.fr/bilan-patrimonial-ia",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bilan patrimonial avec l'IA | Hector",
+    description:
+      "Préparez plus rapidement des bilans patrimoniaux exploitables avec Hector.",
+  },
 };
 
 export default function BilanPatrimonialIaPage() {
