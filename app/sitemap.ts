@@ -17,6 +17,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://hector.agentimpact.fr/assistant-ia-cgpi",
+      lastModified: new Date("2026-09-21"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://hector.agentimpact.fr/automatisation-cabinet-cgp",
+      lastModified: new Date("2026-09-21"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://hector.agentimpact.fr/bilan-patrimonial-ia",
+      lastModified: new Date("2026-09-21"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: "https://hector.agentimpact.fr/mentions-legales",
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: "yearly",
