@@ -70,7 +70,7 @@ export default function ConfidentialitePage() {
         <LegalSection title="1. Responsable du traitement">
           <p>
             Le responsable du traitement des données collectées sur hector.agentimpact.fr est Nadir Lahyani,
-            entrepreneur individuel, 200 rue de la Croix Nivert, 75015 Paris, France. Pour toute question relative à
+            entrepreneur individuel, 61 rue de Lyon, 75012 Paris, France. Pour toute question relative à
             vos données, écrivez à{" "}
             <a href={`mailto:${EMAIL}`} className={LINK_CLASS}>
               {EMAIL}
