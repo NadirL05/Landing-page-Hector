@@ -1,5 +1,4 @@
-// Section crédibilité — cruciale pour un produit patrimonial pas encore
-// en ligne. Volontairement honnête : pas de faux logos clients, pas de
+// Section crédibilité — cruciale pour un produit patrimonial. Volontairement honnête : pas de faux logos clients, pas de
 // faux chiffres d'usage. On vend la rigueur du cadre, pas un historique
 // qui n'existe pas encore.
 //
@@ -21,12 +20,8 @@ const PILLARS = [
     desc: "Chaque cabinet aura un accès isolé, sans mutualisation de données entre clients. Chiffrement au repos et en transit, hébergement prévu en Union européenne.",
   },
   {
-    title: "Construit avec des cabinets pilotes",
-    desc: "La feuille de route se construit avec un nombre restreint de CGPI early adopters, pas dans l'abstrait — chaque fonctionnalité livrée répond à un besoin réel observé.",
-  },
-  {
     title: "Transparence sur l'état du produit",
-    desc: "Hector est en construction. Les tarifs affichés sont une hypothèse en cours de validation commerciale, jamais présentée comme un tarif final imposé.",
+    desc: "Hector est commercialisé. Les tarifs sont ceux affichés sur cette page : 149 € par mois ou 1 490 € par an.",
   },
 ] as const;
 
@@ -35,12 +30,12 @@ export function TrustSection() {
     <section className="border-t border-rule" id="confiance">
       <div className="mx-auto max-w-5xl px-safe py-24 lg:py-28">
         <ScrollReveal className="mb-14 max-w-2xl">
-          <p className="letter-kicker mb-3 text-ink-faint">Avant même le lancement</p>
+          <p className="letter-kicker mb-3 text-ink-faint">Le cadre</p>
           <h2 className="text-display-lg font-display text-ink">
             Ce sur quoi vous pouvez déjà nous juger
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-ink-soft">
-            Hector n&apos;a pas encore d&apos;historique — un cabinet réglementé ne devrait jamais faire confiance sur promesse seule. Voici le cadre, vérifiable dès aujourd&apos;hui.
+            Un cabinet réglementé ne devrait jamais faire confiance sur promesse seule. Voici le cadre, vérifiable dès aujourd&apos;hui.
           </p>
         </ScrollReveal>
 

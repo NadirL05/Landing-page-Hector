@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "Hector est-il déjà disponible ?",
-    a: "Hector est en phase de construction, avec un nombre restreint de cabinets pilotes. La feuille de route se bâtit avec ces premiers utilisateurs plutôt que dans l'abstrait : chaque fonctionnalité livrée répond à un besoin réel observé sur le terrain, pas à une hypothèse produit isolée. Les tarifs affichés sont une hypothèse en cours de validation commerciale, jamais présentée comme un tarif final imposé. Réserver une démonstration permet d'être prioritaire à l'ouverture et d'influencer directement les premières fonctionnalités livrées.",
+    a: "Oui, Hector est commercialisé. Les tarifs sont ceux affichés sur cette page : 149 € par mois ou 1 490 € par an.",
   },
 ] as const;
 

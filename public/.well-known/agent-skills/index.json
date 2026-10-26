@@ -4,9 +4,9 @@
     {
       "name": "site-overview",
       "type": "skill-md",
-      "description": "Vue d'ensemble d'Hector (collaborateur IA pour CGPI) : ce qu'il fait, pour qui, ce que ce site est (landing marketing seule, pas l'outil), et les tarifs à l'état d'hypothèse.",
+      "description": "Vue d'ensemble d'Hector (collaborateur IA pour CGPI) : ce qu'il fait, pour qui, ce que ce site est (landing marketing seule, pas l'outil), et ses tarifs.",
       "url": "https://hector.agentimpact.fr/.well-known/agent-skills/site-overview/SKILL.md",
-      "digest": "sha256:2eb07e6f2a55586d3ffe6c1ac9081fcbebadfcd322ad13b5ce92aeed925b6ab5"
+      "digest": "sha256:a7db2794b47260f609a13739e674fc05b78d14fea416505f599e72cb977d1fd9"
     }
   ]
 }

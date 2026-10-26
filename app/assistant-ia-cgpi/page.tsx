@@ -73,7 +73,7 @@ export default function AssistantIaCgpiPage() {
             Aucune décision d&apos;investissement n&apos;est automatisée. Hector consolide, alerte et prépare ; la décision reste toujours celle du CGPI, conformément au principe de non-substitution au conseil réglementé.
           </p>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Hector est en phase de construction, avec un nombre restreint de cabinets pilotes : la feuille de route se bâtit avec ces premiers utilisateurs.
+            Hector est commercialisé, aux tarifs affichés sur le site : 149 € par mois ou 1 490 € par an.
           </p>
         </section>
         <div className="mt-10 flex flex-wrap gap-5 text-sm">

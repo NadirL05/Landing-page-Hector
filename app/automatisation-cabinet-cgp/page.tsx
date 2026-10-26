@@ -58,18 +58,9 @@ export default function AutomatisationCabinetCgpPage() {
           </ul>
         </section>
         <section className="border-b border-rule py-10">
-          <h2 className="font-display text-2xl text-ink">Des règles explicites, puis des déclenchements automatiques</h2>
+          <h2 className="font-display text-2xl text-ink">La décision reste au conseiller</h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Chaque alerte, relance ou escalade repose sur une condition et un destinataire définis. Hector surveille ensuite les échéances et les écarts, envoie les relances prévues et rassemble les alertes dans un canal unique.
-          </p>
-          <p className="mt-5 leading-relaxed text-ink-soft">
-            Les informations sont lues depuis les outils et les fichiers déjà utilisés, sans les migrer. Les conditions de déclenchement se modifient au fil des besoins, sans reconstruire l&apos;outil.
-          </p>
-        </section>
-        <section className="border-b border-rule py-10">
-          <h2 className="font-display text-2xl text-ink">Les exceptions restent au conseiller</h2>
-          <p className="mt-5 leading-relaxed text-ink-soft">
-            Hector traite les tâches récurrentes et prépare le dossier. Les cas ambigus sont transmis avec le contexte nécessaire pour décider, et aucune décision d&apos;investissement n&apos;est automatisée. Le conseil, la relation client et les arbitrages restent les vôtres.
+            Hector traite les tâches récurrentes et prépare le dossier. Aucune décision d&apos;investissement n&apos;est automatisée. Le conseil, la relation client et les arbitrages restent les vôtres.
           </p>
         </section>
         <div className="mt-10 flex flex-wrap gap-5 text-sm">

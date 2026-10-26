@@ -58,12 +58,12 @@ export default function BilanPatrimonialIaPage() {
           </p>
         </section>
         <section className="border-b border-rule py-10">
-          <h2 className="font-display text-2xl text-ink">Des données rapprochées avant le rendez-vous</h2>
+          <h2 className="font-display text-2xl text-ink">Des données consolidées avant le rendez-vous</h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Les données d&apos;un client sont souvent dispersées entre custodiens, assureurs et logiciel interne, et les consolider à la main prend du temps. Hector consolide le suivi d&apos;un parc d&apos;actifs patrimoniaux à partir des outils déjà en place, comme Harvest ou Linxea, sans migration. Les pièces attendues sont rapprochées des pièces reçues, et les écarts sont signalés.
+            Les données d&apos;un client sont souvent dispersées entre custodiens, assureurs et logiciel interne, et les consolider à la main prend du temps. Hector consolide le suivi d&apos;un parc d&apos;actifs patrimoniaux à partir des outils déjà en place, comme Harvest ou Linxea, sans migration.
           </p>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Un modèle de langage lit et classe les documents entrants. Les situations à examiner vous arrivent avec les informations déjà rassemblées.
+            Un modèle de langage lit et classe les documents entrants.
           </p>
         </section>
         <section className="border-b border-rule py-10">

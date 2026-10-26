@@ -17,6 +17,7 @@ export default function MentionsLegalesPage() {
       kicker="Informations légales"
       title="Mentions légales"
       lead="Identification de l'éditeur du site hector.agentimpact.fr, conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique."
+      updated="26 octobre 2026"
     >
       <div className="space-y-12">
         <LegalSection title="1. Éditeur du site">
@@ -45,7 +46,8 @@ export default function MentionsLegalesPage() {
 
         <LegalSection title="2. Hébergeur">
           <p>
-            Le site hector.agentimpact.fr est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis —{" "}
+            Le site hector.agentimpact.fr et l&apos;application Hector (app-hector.agentimpact.fr) sont hébergés par
+            Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis —{" "}
             <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="underline decoration-gold underline-offset-4 transition-colors hover:text-ink">
               vercel.com
             </a>
@@ -53,18 +55,16 @@ export default function MentionsLegalesPage() {
           </p>
         </LegalSection>
 
-        <LegalSection title="3. Statut du produit">
+        <LegalSection title="3. Le produit Hector">
           <p>
-            Hector est en phase de pré-lancement : cette page présente le produit à venir et permet de réserver une
-            démonstration ou de s&apos;inscrire via un lien de paiement Stripe. Ce lien de paiement est en{" "}
-            <strong>mode réel</strong> (un paiement effectué est un débit réel, traité par Stripe) : il réserve une
-            place et donne accès à un accompagnement de lancement, en amont de la mise à disposition complète du
-            produit. Aucune donnée patrimoniale n&apos;est traitée par un produit encore en construction ; seules les
-            informations transmises via les outils décrits dans la{" "}
+            Hector est commercialisé sous forme d&apos;abonnement, aux tarifs affichés sur ce site : 149 € par mois ou
+            1 490 € par an. La souscription passe par un lien de paiement Stripe en <strong>mode réel</strong> (un
+            paiement effectué est un débit réel, traité par Stripe). Ce site permet aussi de réserver une
+            démonstration. Les données traitées par ce site et par l&apos;application Hector sont décrites dans la{" "}
             <a href="/confidentialite" className="underline decoration-gold underline-offset-4 transition-colors hover:text-ink">
               politique de confidentialité
-            </a>{" "}
-            sont collectées à ce stade.
+            </a>
+            .
           </p>
         </LegalSection>
 

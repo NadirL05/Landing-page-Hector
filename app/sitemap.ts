@@ -6,16 +6,21 @@ import type { MetadataRoute } from "next";
 // lastModified figé (pas new Date()) : sinon la valeur change à chaque build
 // même sans modification de contenu réel, ce qui n'est pas un signal fiable
 // pour les crawlers. Mettre à jour manuellement à chaque changement de fond.
-const LAST_CONTENT_UPDATE = new Date("2026-08-21");
-// Pages métier étoffées (en-tête, pied de page, contenu) le 26/10/2026.
-// À ajuster à la date de mise en production si elle diffère.
+// Pages légales réécrites le 26/10/2026 (Hector commercialisé, traitements
+// de l'application décrits d'après le code du produit).
+const LEGAL_PAGES_UPDATE = new Date("2026-10-26");
+// Pages métier étoffées (en-tête, pied de page, contenu) le 26/10/2026,
+// puis phrases non sourcées retirées le même jour (QA SEO, relais 20).
 const TOPIC_PAGES_UPDATE = new Date("2026-10-26");
+// Accueil : section « Par usage », en-tête et pied de page modifiés le
+// 26/10/2026 (PR #20).
+const HOME_UPDATE = new Date("2026-10-26");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://hector.agentimpact.fr",
-      lastModified: LAST_CONTENT_UPDATE,
+      lastModified: HOME_UPDATE,
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -39,13 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://hector.agentimpact.fr/mentions-legales",
-      lastModified: LAST_CONTENT_UPDATE,
+      lastModified: LEGAL_PAGES_UPDATE,
       changeFrequency: "yearly",
       priority: 0.2,
     },
     {
       url: "https://hector.agentimpact.fr/confidentialite",
-      lastModified: LAST_CONTENT_UPDATE,
+      lastModified: LEGAL_PAGES_UPDATE,
       changeFrequency: "yearly",
       priority: 0.2,
     },

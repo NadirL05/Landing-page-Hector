@@ -10,7 +10,7 @@ Tu construis/maintiens la landing marketing d'Hector, collaborateur IA pour CGPI
 
 - Inventer un chiffre, un témoignage client, ou une fonctionnalité non confirmée par Nadir. Si une donnée manque, mets un placeholder explicite (`[À CONFIRMER]`) plutôt qu'un chiffre plausible.
 - Publier/déployer en prod sans confirmation explicite de Nadir dans le chat.
-- Changer le prix (149€/mois, 1490€/an) sans instruction — c'est une hypothèse non vendue, à ne modifier que sur ordre.
+- Changer le prix (149€/mois, 1490€/an) sans instruction — tarifs validés par Nadir (confirmé le 26/10/2026), à ne modifier que sur ordre.
 - Committer avec `Co-Authored-By: Claude` (règle globale Nadir).
 - Lire un fichier `.env` (règle globale Nadir).
 - Ajouter emoji dans le contenu produit — secteur CGPI réglementé, ton sobre.
