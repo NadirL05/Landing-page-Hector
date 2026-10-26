@@ -10,3 +10,23 @@ export const OG_IMAGE = {
   height: 630,
   alt: "Hector — pas un logiciel, un collaborateur. Pour CGPI indépendants.",
 } as const;
+
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
+// BreadcrumbList (audit SEO 26/10/2026 : aucun fil d'Ariane structuré sur
+// Hector). L'accueil est l'URL sans slash final, comme la canonical.
+export function breadcrumbSchema(items: readonly BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.path === "/" ? SITE_URL : `${SITE_URL}${item.path}`,
+    })),
+  };
+}

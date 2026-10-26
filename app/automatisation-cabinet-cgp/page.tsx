@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { OG_IMAGE } from "@/lib/seo";
 
@@ -33,6 +34,7 @@ export default function AutomatisationCabinetCgpPage() {
     <div className="min-h-screen bg-paper">
       <SiteHeader />
       <main className="mx-auto max-w-4xl px-safe py-20 lg:py-28">
+        <Breadcrumb name="Automatisation d'un cabinet CGP" path="/automatisation-cabinet-cgp" />
         <p className="letter-kicker mb-4 text-ink-faint">Automatisation cabinet</p>
         <h1 className="text-display-lg font-display text-ink">Automatisation d&apos;un cabinet CGP</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
