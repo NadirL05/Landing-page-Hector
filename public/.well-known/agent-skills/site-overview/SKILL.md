@@ -8,7 +8,7 @@ Un collaborateur IA pour cabinets de gestion de patrimoine indépendants (CGPI).
 
 ## Ce que ce site est — et n'est pas
 
-Ce site (hector.agentimpact.fr) est une landing marketing seule. L'outil Hector est en phase de construction avec un nombre restreint de cabinets pilotes ; il n'est pas encore disponible en self-service, et n'expose aucune API publique ni serveur MCP live.
+Ce site (hector.agentimpact.fr) est une landing marketing seule. L'outil Hector est commercialisé, aux tarifs affichés sur le site (149 € par mois ou 1 490 € par an). Il n'expose aucune API publique ni serveur MCP live.
 
 ## Public
 

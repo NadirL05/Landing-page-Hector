@@ -4,7 +4,7 @@
 
 ## Statut
 
-Ce site (hector.agentimpact.fr) est une landing marketing seule. L'outil Hector est en construction, avec un nombre restreint de cabinets pilotes ; il n'est pas encore disponible en self-service. Aucune API publique ni serveur MCP live n'est exposée à ce stade.
+Ce site (hector.agentimpact.fr) est une landing marketing seule. L'outil Hector est commercialisé, aux tarifs affichés sur le site (149 € par mois ou 1 490 € par an). Aucune API publique ni serveur MCP live n'est exposée à ce stade.
 
 ## Pour qui
 
