@@ -2,6 +2,18 @@
 
 Journal des changements SEO, du plus récent au plus ancien. Chaque entrée renvoie à l'audit qui la justifie et dit comment la vérifier.
 
+## 2026-10-26 (bis) — Corrections de la QA SEO du 26/10/2026 (relais 20)
+
+Source : `20_qa_apres_correction.md` (QA adversariale après mise en production), corrections 2, 4 et 8 de la liste, limitées à ce qui ne demande pas de décision produit. Branche `fix/qa2-seo`.
+
+| Changement | Fichiers | Vérification |
+|---|---|---|
+| Retrait des phrases de la PR #20 tirées seulement de l'étude de cas www/hector et non retrouvées dans le code d'Hector : alertes et relances sur « condition et destinataire définis », « canal unique » d'alertes, conditions modifiables « sans reconstruire l'outil », lecture « des fichiers déjà utilisés », transmission des « cas ambigus » avec leur contexte, rapprochement « pièces attendues / pièces reçues », « situations à examiner » avec les informations rassemblées. Conservé : la classification des documents par un modèle de langage, corroborée par le code (`apps/api/pipeline/extraction/classifier.py`). Deux H2 suivent le contenu restant. | `app/automatisation-cabinet-cgp/page.tsx`, `app/bilan-patrimonial-ia/page.tsx` | relecture de Nadir |
+| lastmod de l'accueil au 2026-10-26 (section « Par usage », en-tête et pied de page modifiés ce jour-là) | `app/sitemap.ts` | `/sitemap.xml` |
+| Page 404 : une seule balise robots `noindex`, sans canonical vers l'accueil | `app/not-found.tsx` | HTML de `_not-found` dans le build |
+
+Non traité (décision de Nadir en attente) : la mention « tarifs en cours de validation » et la phrase « phase de construction » sur `/assistant-ia-cgpi`.
+
 ## 2026-10-26 — Corrections issues de l'audit SEO/GEO du 26/10/2026
 
 Source : audit RosoAI SEO/GEO V4 (`SEO_AUDIT_2026-10-26.md`, relais 03, 07 et 22), accord de Nadir du 26/10 (« go pour tout, relie les sites »). Branche `seo/fix-gsc-indexation`.
