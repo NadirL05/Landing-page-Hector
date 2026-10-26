@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Assistant IA pour CGPI",
@@ -13,12 +14,17 @@ export const metadata: Metadata = {
     description:
       "Hector aide les CGPI à automatiser le suivi patrimonial, les relances et la préparation de livrables sans ajouter un nouveau logiciel à piloter.",
     url: "https://hector.agentimpact.fr/assistant-ia-cgpi",
+    siteName: "Hector",
+    locale: "fr_FR",
+    type: "website",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Assistant IA pour CGPI | Hector",
     description:
       "Automatisez suivi patrimonial, relances et préparation de livrables avec Hector.",
+    images: [{ url: OG_IMAGE.url, alt: OG_IMAGE.alt }],
   },
 };
 

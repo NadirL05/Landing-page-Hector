@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Automatisation d'un cabinet CGP",
@@ -13,12 +14,17 @@ export const metadata: Metadata = {
     description:
       "Automatisez les tâches répétitives d'un cabinet de gestion de patrimoine avec Hector : suivi, relances, alertes et préparation de livrables.",
     url: "https://hector.agentimpact.fr/automatisation-cabinet-cgp",
+    siteName: "Hector",
+    locale: "fr_FR",
+    type: "website",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Automatisation d'un cabinet CGP | Hector",
     description:
       "Suivi, relances, alertes et préparation de livrables pour les cabinets CGP.",
+    images: [{ url: OG_IMAGE.url, alt: OG_IMAGE.alt }],
   },
 };
 

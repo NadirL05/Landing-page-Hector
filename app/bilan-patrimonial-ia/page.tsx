@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Bilan patrimonial avec l'IA",
@@ -13,12 +14,17 @@ export const metadata: Metadata = {
     description:
       "Hector aide les CGPI à préparer et transmettre plus rapidement des bilans patrimoniaux exploitables à partir des données suivies par le cabinet.",
     url: "https://hector.agentimpact.fr/bilan-patrimonial-ia",
+    siteName: "Hector",
+    locale: "fr_FR",
+    type: "website",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bilan patrimonial avec l'IA | Hector",
     description:
       "Préparez plus rapidement des bilans patrimoniaux exploitables avec Hector.",
+    images: [{ url: OG_IMAGE.url, alt: OG_IMAGE.alt }],
   },
 };
 
