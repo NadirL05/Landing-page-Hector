@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import softwareApplicationSchema from "@/public/schema/software-application.json";
 import organizationSchema from "@/public/schema/organization.json";
@@ -8,6 +7,7 @@ import { WhatsAppMockup, BilanApercu } from "@/components/hero-mockups";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { WealthSeal } from "@/components/wealth-seal";
 import { PricingButton } from "@/components/pricing-button";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 // Contenu source : Figma Make (figma.com/make/sh6K53CdXkJl0eAR5D7Vf0) + PRD 3
 // Messaging & Value Prop (patrimoine repo). Refonte design v2 — passe
@@ -69,22 +69,7 @@ export default function Home() {
             En-tête de courrier, pas une nav-bar SaaS : wordmark en petites
             capitales espacées, sous-titre en italique, liens texte plats
             (jamais de bouton pilule dans le header). Réf Titan masthead. */}
-        <header className="border-b border-rule bg-paper">
-          <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-safe">
-            <div>
-              <p className="text-lg font-semibold tracking-[0.14em] text-ink">HECTOR</p>
-              <p className="hidden font-display text-xs italic text-ink-faint sm:block">Pour cabinets de gestion de patrimoine indépendants</p>
-            </div>
-            <nav aria-label="Navigation principale" className="flex items-center gap-6 text-sm text-ink-soft">
-              <a href="#confiance" className="hidden underline decoration-rule-strong underline-offset-4 transition-colors hover:text-ink sm:inline">
-                Cadre de confiance
-              </a>
-              <a href="#tarifs" className="underline decoration-gold underline-offset-4 transition-colors hover:text-ink">
-                Tarifs
-              </a>
-            </nav>
-          </div>
-        </header>
+        <SiteHeader onHome />
 
         <main>
           {/* ===== HERO =====
@@ -308,20 +293,7 @@ export default function Home() {
           </section>
         </main>
 
-        <footer className="border-t border-rule">
-          <div className="mx-auto max-w-6xl px-safe py-6 text-xs text-ink-faint">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <span>© {new Date().getFullYear()} Hector</span>
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                <Link href="/assistant-ia-cgpi" className="transition-colors hover:text-ink">Assistant IA pour CGPI</Link>
-                <Link href="/automatisation-cabinet-cgp" className="transition-colors hover:text-ink">Automatisation cabinet CGP</Link>
-                <Link href="/bilan-patrimonial-ia" className="transition-colors hover:text-ink">Bilan patrimonial IA</Link>
-                <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>
-                <Link href="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );
