@@ -19,13 +19,17 @@ interface ProcessingRow {
   retention: string;
 }
 
-// Traitements réellement mis en œuvre par CE site (landing pré-lancement) —
-// pas d'invention d'un régime de traitement pour un produit Hector qui
-// n'existe pas encore (pas de WhatsApp, pas de données patrimoniales).
-// Vérifiés un par un contre app/page.tsx :
-//   - Stripe  → liens de paiement STRIPE_LINK_MONTHLY/YEARLY (mode LIVE depuis le 21/08/2026)
-//   - Calendly → CALENDLY_URL, ouvert dans un nouvel onglet
-//   - Vercel  → hébergement de ce site
+// Traitements décrits d'après le code réel (mise à jour du 26/10/2026) :
+//   - site hector.agentimpact.fr : app/page.tsx de ce dépôt
+//       Stripe   → liens de paiement STRIPE_LINK_MONTHLY/YEARLY (mode LIVE depuis le 21/08/2026)
+//       Calendly → CALENDLY_URL, ouvert dans un nouvel onglet
+//       Vercel   → hébergement
+//   - application Hector : dépôt NadirL05/patrimoine (apps/api/models/*,
+//     apps/api/config.py, apps/web/vercel.json, apps/web/app/client.tsx).
+//     Les intégrations optionnelles (Powens, HubSpot, Slack, Teams, WhatsApp)
+//     ne sont appelées que si le cabinet les active. Pénélop n'est qu'un
+//     squelette dans le code : volontairement absent de cette page.
+// Ne rien ajouter ici qui ne soit pas vérifiable dans l'un de ces deux codes.
 const PROCESSINGS: readonly ProcessingRow[] = [
   {
     purpose: "Réservation d'une démonstration",
@@ -34,19 +38,48 @@ const PROCESSINGS: readonly ProcessingRow[] = [
     retention: "3 ans à compter du dernier contact",
   },
   {
-    purpose: "Inscription via le lien de paiement (mode réel)",
+    purpose: "Souscription via le lien de paiement (mode réel)",
     data: "Nom, adresse e-mail et informations de paiement traitées directement par Stripe",
-    legalBasis: "Exécution du contrat de réservation",
+    legalBasis: "Exécution du contrat d'abonnement",
     retention: "3 ans à compter du dernier contact, hors durées de conservation légales propres à Stripe pour les données de facturation",
+  },
+  {
+    purpose: "Compte et abonnement du cabinet dans l'application Hector",
+    data: "Nom du cabinet, logo et couleur de marque, identifiants des utilisateurs (adresse e-mail, nom), plan souscrit, statut d'abonnement et identifiants client et abonnement Stripe",
+    legalBasis: "Exécution du contrat d'abonnement",
+    retention: "Pendant la durée de l'abonnement ; les durées applicables après sa fin sont communiquées sur demande",
+  },
+  {
+    purpose: "Dossiers patrimoniaux tenus par le cabinet dans l'application Hector",
+    data: "Pour chaque client du cabinet : identité et coordonnées (nom, e-mail, téléphone), situation familiale (régime matrimonial, conjoint, personnes à charge), actifs, passifs, revenus et charges, contrats d'assurance-vie et clauses bénéficiaires, prévoyance, éléments fiscaux, opérations bancaires importées, documents déposés (relevés de compte, avis d'imposition, contrats d'assurance-vie, offres de prêt), profil investisseur (profil de risque, connaissances, capacité de perte, horizon, objectifs), comptes rendus de rendez-vous et rapports préparés",
+    legalBasis: "Traitement effectué pour le compte du cabinet, qui détermine la finalité et la base légale applicables à ses clients",
+    retention: "Durées définies avec le cabinet",
+  },
+  {
+    purpose: "Messagerie conversationnelle (Slack, Microsoft Teams ou WhatsApp), si le cabinet l'active",
+    data: "Identifiants du compte de messagerie de l'utilisateur et de l'espace de travail, journal des échanges avec Hector",
+    legalBasis: "Exécution du contrat d'abonnement",
+    retention: "Durées définies avec le cabinet",
   },
 ];
 
 const PROCESSORS: readonly { name: string; role: string }[] = [
-  { name: "Vercel Inc.", role: "Hébergement du site hector.agentimpact.fr" },
+  { name: "Vercel Inc.", role: "Hébergement du site hector.agentimpact.fr et de l'application Hector" },
   { name: "Calendly LLC", role: "Prise de rendez-vous en ligne (widget ouvert sur calendly.com)" },
   {
     name: "Stripe Payments Europe, Ltd.",
-    role: "Traitement des paiements via les liens de paiement Stripe (mode réel — un paiement effectué est un débit réel)",
+    role: "Traitement des paiements et des abonnements (mode réel — un paiement effectué est un débit réel)",
+  },
+  { name: "Neon", role: "Base de données PostgreSQL de l'application Hector" },
+  { name: "Clerk", role: "Authentification des utilisateurs de l'application Hector" },
+  {
+    name: "Anthropic, OpenRouter",
+    role: "Modèles d'IA utilisés par l'application Hector (assistant, extraction de documents, comptes rendus) ; les éléments du dossier nécessaires à la demande leur sont transmis",
+  },
+  { name: "Sentry", role: "Suivi des erreurs techniques de l'application Hector" },
+  {
+    name: "Intégrations activées par le cabinet",
+    role: "Powens (agrégation bancaire), HubSpot (CRM), Slack, Microsoft Teams, WhatsApp (Meta) : appelés uniquement si le cabinet connecte le service concerné",
   },
 ];
 
@@ -64,7 +97,8 @@ export default function ConfidentialitePage() {
     <LegalShell
       kicker="Protection des données"
       title="Politique de confidentialité"
-      lead="Ce document décrit les données réellement collectées sur hector.agentimpact.fr aujourd'hui — pas les traitements d'un produit encore en construction."
+      lead="Ce document décrit les données traitées par le site hector.agentimpact.fr et par l'application Hector (app-hector.agentimpact.fr)."
+      updated="26 octobre 2026"
     >
       <div className="space-y-12">
         <LegalSection title="1. Responsable du traitement">
@@ -79,13 +113,17 @@ export default function ConfidentialitePage() {
           </p>
         </LegalSection>
 
-        <LegalSection title="2. Un site de pré-lancement, pas encore un produit">
+        <LegalSection title="2. Le site et l&apos;application">
           <p>
-            Hector n&apos;est pas encore un produit disponible : ce site présente l&apos;offre à venir. Aucune donnée
-            patrimoniale, aucune intégration WhatsApp ou logiciel de cabinet n&apos;existe à ce stade — décrire un tel
-            traitement serait inexact. Seules les données collectées via les deux actions possibles sur cette page
-            (réserver une démonstration, s&apos;inscrire via le lien de paiement) sont traitées, comme détaillé
-            ci-dessous.
+            Le site hector.agentimpact.fr présente Hector et permet deux actions : réserver une démonstration et
+            souscrire via le lien de paiement. L&apos;application Hector, accessible après connexion, est l&apos;outil
+            utilisé par les cabinets abonnés.
+          </p>
+          <p>
+            Pour les données que les cabinets enregistrent dans l&apos;application au sujet de leurs propres clients,
+            le cabinet détermine les finalités du traitement ; l&apos;éditeur les traite pour son compte, afin de
+            fournir le service. Les personnes concernées peuvent exercer leurs droits auprès de leur cabinet ou à
+            l&apos;adresse ci-dessus.
           </p>
         </LegalSection>
 
@@ -119,7 +157,7 @@ export default function ConfidentialitePage() {
         <LegalSection title="4. Destinataires et sous-traitants">
           <p>
             Vos données sont traitées par Nadir Lahyani et par les prestataires techniques strictement nécessaires
-            au fonctionnement de ce site :
+            au fonctionnement de ce site et de l&apos;application Hector :
           </p>
           <ul className="space-y-3">
             {PROCESSORS.map((processor) => (
@@ -130,10 +168,11 @@ export default function ConfidentialitePage() {
             ))}
           </ul>
           <p>
-            Ces prestataires sont susceptibles de traiter des données en dehors de l&apos;Union européenne
-            (notamment Vercel Inc. et Stripe Payments Europe, Ltd., dont l&apos;infrastructure s&apos;appuie sur des
-            centres de données situés hors de France). Ces transferts sont encadrés par les garanties prévues par le
-            RGPD (clauses contractuelles types de la Commission européenne ou décision d&apos;adéquation).
+            Plusieurs de ces prestataires sont établis hors de l&apos;Union européenne, notamment aux États-Unis, et
+            sont susceptibles d&apos;y traiter des données. Le suivi des erreurs (Sentry) est configuré sur un point
+            de collecte situé dans l&apos;Union européenne. La localisation de chaque traitement et les garanties
+            encadrant les transferts (clauses contractuelles types de la Commission européenne ou décision
+            d&apos;adéquation) sont communiquées sur demande à l&apos;adresse ci-dessus.
           </p>
         </LegalSection>
 
@@ -154,11 +193,16 @@ export default function ConfidentialitePage() {
             s&apos;ouvre dans un nouvel onglet vers calendly.com ; il dépose alors ses propres traceurs, soumis à la
             politique de confidentialité de son éditeur.
           </p>
+          <p>
+            L&apos;application Hector utilise les cookies nécessaires à l&apos;authentification de ses utilisateurs
+            (Clerk).
+          </p>
         </LegalSection>
 
         <LegalSection title="7. Sécurité">
           <p>
-            Les échanges avec ce site sont chiffrés (HTTPS). Les données transmises via Calendly ou Stripe sont
+            Les échanges avec ce site et avec l&apos;application Hector sont chiffrés (HTTPS), de même que la
+            connexion entre l&apos;application et sa base de données. Les données transmises via Calendly ou Stripe sont
             hébergées et sécurisées par ces prestataires, sur des infrastructures conformes à leurs standards de
             sécurité respectifs.
           </p>
@@ -193,9 +237,7 @@ export default function ConfidentialitePage() {
 
         <LegalSection title="9. Évolution de cette politique">
           <p>
-            À mesure que Hector passe de landing page à produit réellement disponible (intégration WhatsApp,
-            connexion aux logiciels des cabinets), cette politique sera mise à jour pour refléter les nouveaux
-            traitements de données mis en œuvre — jamais l&apos;inverse. Les{" "}
+            Cette politique est mise à jour lorsque de nouveaux traitements de données sont mis en œuvre. Les{" "}
             <a href="/mentions-legales" className={LINK_CLASS}>
               mentions légales
             </a>{" "}
