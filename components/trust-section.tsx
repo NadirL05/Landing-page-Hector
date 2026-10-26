@@ -26,7 +26,7 @@ const PILLARS = [
   },
   {
     title: "Transparence sur l'état du produit",
-    desc: "Hector est en construction. Les tarifs affichés sont une hypothèse en cours de validation commerciale, jamais présentée comme un tarif final imposé.",
+    desc: "Hector est en construction. Les tarifs sont ceux affichés sur cette page : 149 € par mois ou 1 490 € par an.",
   },
 ] as const;
 

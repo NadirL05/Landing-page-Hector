@@ -20,7 +20,7 @@ Aucune décision d'investissement automatisée — Hector prépare, le CGPI vali
 
 ## Tarifs
 
-Hypothèse commerciale en cours de validation, pas encore vendue : 149 €/mois ou 1 490 €/an. Sujette à changement.
+149 €/mois ou 1 490 €/an.
 
 ## Contact
 

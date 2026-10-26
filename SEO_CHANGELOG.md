@@ -4,15 +4,16 @@ Journal des changements SEO, du plus récent au plus ancien. Chaque entrée renv
 
 ## 2026-10-26 (bis) — Corrections de la QA SEO du 26/10/2026 (relais 20)
 
-Source : `20_qa_apres_correction.md` (QA adversariale après mise en production), corrections 2, 4 et 8 de la liste, limitées à ce qui ne demande pas de décision produit. Branche `fix/qa2-seo`.
+Source : `20_qa_apres_correction.md` (QA adversariale après mise en production), corrections 1 (tarifs uniquement), 2, 4 et 8 de la liste. Branche `fix/qa2-seo`.
 
 | Changement | Fichiers | Vérification |
 |---|---|---|
 | Retrait des phrases de la PR #20 tirées seulement de l'étude de cas www/hector et non retrouvées dans le code d'Hector : alertes et relances sur « condition et destinataire définis », « canal unique » d'alertes, conditions modifiables « sans reconstruire l'outil », lecture « des fichiers déjà utilisés », transmission des « cas ambigus » avec leur contexte, rapprochement « pièces attendues / pièces reçues », « situations à examiner » avec les informations rassemblées. Conservé : la classification des documents par un modèle de langage, corroborée par le code (`apps/api/pipeline/extraction/classifier.py`). Deux H2 suivent le contenu restant. | `app/automatisation-cabinet-cgp/page.tsx`, `app/bilan-patrimonial-ia/page.tsx` | relecture de Nadir |
 | lastmod de l'accueil au 2026-10-26 (section « Par usage », en-tête et pied de page modifiés ce jour-là) | `app/sitemap.ts` | `/sitemap.xml` |
 | Page 404 : une seule balise robots `noindex`, sans canonical vers l'accueil | `app/not-found.tsx` | HTML de `_not-found` dans le build |
+| Tarifs : la mention « hypothèse en cours de validation commerciale » est retirée partout (bloc confiance, FAQ visible, JSON-LD `FAQPage`, `llms.txt`, Agent Skill `site-overview` et son digest). Elle est remplacée par les montants déjà affichés (149 € par mois, 1 490 € par an). Décision de Nadir du 26/10/2026 : « les tarifs sont validés ». | `components/trust-section.tsx`, `components/faq-section.tsx`, `public/schema/faq.json`, `public/llms.txt`, `public/.well-known/agent-skills/*` | grep « hypothèse » sans résultat dans `app`, `components` et `public` |
 
-Non traité (décision de Nadir en attente) : la mention « tarifs en cours de validation » et la phrase « phase de construction » sur `/assistant-ia-cgpi`.
+Non traité (décision de Nadir en attente) : la phrase « phase de construction » et les « cabinets pilotes » (accueil, FAQ, `/assistant-ia-cgpi`).
 
 ## 2026-10-26 — Corrections issues de l'audit SEO/GEO du 26/10/2026
 

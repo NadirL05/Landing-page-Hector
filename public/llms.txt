@@ -22,7 +22,7 @@ Aucune décision d'investissement automatisée. Hector prépare, le CGPI valide 
 
 ## Tarifs
 
-Hypothèse tarifaire en cours de validation, pas encore vendue commercialement — sujette à changement :
+Tarifs affichés sur le site :
 
 - Mensuel : 149 €/mois
 - Annuel : 1 490 €/an (soit 124 €/mois, 2 mois offerts)
