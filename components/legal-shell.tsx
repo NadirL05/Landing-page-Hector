@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import type { ReactNode } from "react";
 
 // Coquille commune aux pages légales (mentions-légales, confidentialité) —
@@ -16,19 +16,7 @@ interface LegalShellProps {
 export function LegalShell({ kicker, title, lead, children }: LegalShellProps) {
   return (
     <div className="min-h-screen bg-paper">
-      <header className="border-b border-rule bg-paper">
-        <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-safe">
-          <Link href="/">
-            <p className="text-lg font-semibold tracking-[0.14em] text-ink">HECTOR</p>
-            <p className="hidden font-display text-xs italic text-ink-faint sm:block">Pour cabinets de gestion de patrimoine indépendants</p>
-          </Link>
-          <nav aria-label="Navigation principale" className="flex items-center gap-6 text-sm text-ink-soft">
-            <Link href="/#tarifs" className="underline decoration-gold underline-offset-4 transition-colors hover:text-ink">
-              Tarifs
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="border-b border-rule">
@@ -43,15 +31,7 @@ export function LegalShell({ kicker, title, lead, children }: LegalShellProps) {
         <section className="mx-auto max-w-3xl px-safe py-16 lg:py-20">{children}</section>
       </main>
 
-      <footer className="border-t border-rule">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-safe text-xs text-ink-faint">
-          <span>© {new Date().getFullYear()} Hector</span>
-          <div className="flex gap-6">
-            <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>
-            <Link href="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

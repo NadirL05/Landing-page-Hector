@@ -10,9 +10,9 @@
   "inLanguage": "fr",
   "publisher": {
     "@type": "Organization",
-    "@id": "https://agentimpact.fr/#organization",
+    "@id": "https://www.agentimpact.fr/#organization",
     "name": "AgentImpact",
-    "url": "https://agentimpact.fr",
+    "url": "https://www.agentimpact.fr/",
     "founder": {
       "@type": "Person",
       "name": "Nadir Lahyani"

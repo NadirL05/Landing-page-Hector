@@ -7,6 +7,9 @@ import type { MetadataRoute } from "next";
 // même sans modification de contenu réel, ce qui n'est pas un signal fiable
 // pour les crawlers. Mettre à jour manuellement à chaque changement de fond.
 const LAST_CONTENT_UPDATE = new Date("2026-08-21");
+// Pages métier étoffées (en-tête, pied de page, contenu) le 26/10/2026.
+// À ajuster à la date de mise en production si elle diffère.
+const TOPIC_PAGES_UPDATE = new Date("2026-10-26");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -18,19 +21,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://hector.agentimpact.fr/assistant-ia-cgpi",
-      lastModified: new Date("2026-09-21"),
+      lastModified: TOPIC_PAGES_UPDATE,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: "https://hector.agentimpact.fr/automatisation-cabinet-cgp",
-      lastModified: new Date("2026-09-21"),
+      lastModified: TOPIC_PAGES_UPDATE,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: "https://hector.agentimpact.fr/bilan-patrimonial-ia",
-      lastModified: new Date("2026-09-21"),
+      lastModified: TOPIC_PAGES_UPDATE,
       changeFrequency: "monthly",
       priority: 0.85,
     },

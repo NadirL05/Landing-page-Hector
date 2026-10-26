@@ -8,6 +8,7 @@ import { WhatsAppMockup, BilanApercu } from "@/components/hero-mockups";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { WealthSeal } from "@/components/wealth-seal";
 import { PricingButton } from "@/components/pricing-button";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 // Contenu source : Figma Make (figma.com/make/sh6K53CdXkJl0eAR5D7Vf0) + PRD 3
 // Messaging & Value Prop (patrimoine repo). Refonte design v2 — passe
@@ -46,6 +47,12 @@ const ENJEUX = [
   { title: "Temps d'expert perdu en surveillance", desc: "Vous êtes CGPI, pas opérateur de monitoring. La valeur que vous vendez, c'est le conseil, pas la veille." },
 ] as const;
 
+const USAGES = [
+  { href: "/assistant-ia-cgpi", label: "Assistant IA pour CGPI", desc: "Suivi patrimonial, relances et livrables, demandés et reçus sur WhatsApp." },
+  { href: "/automatisation-cabinet-cgp", label: "Automatisation d'un cabinet CGP", desc: "Surveillance, relances et alertes, sans remplacer vos outils existants." },
+  { href: "/bilan-patrimonial-ia", label: "Bilan patrimonial avec l'IA", desc: "Du suivi consolidé au bilan prêt pour le rendez-vous client." },
+] as const;
+
 const COMPARISON_ROWS = [
   { label: "Modèle", hector: "collaborateur qui fait le travail", classique: "logiciel à opérer soi-même", gpt: "assistant qui répond, ne fait rien" },
   { label: "Livrable", hector: "page interactive brandée", classique: "PDF morts", gpt: "du texte" },
@@ -69,22 +76,7 @@ export default function Home() {
             En-tête de courrier, pas une nav-bar SaaS : wordmark en petites
             capitales espacées, sous-titre en italique, liens texte plats
             (jamais de bouton pilule dans le header). Réf Titan masthead. */}
-        <header className="border-b border-rule bg-paper">
-          <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-safe">
-            <div>
-              <p className="text-lg font-semibold tracking-[0.14em] text-ink">HECTOR</p>
-              <p className="hidden font-display text-xs italic text-ink-faint sm:block">Pour cabinets de gestion de patrimoine indépendants</p>
-            </div>
-            <nav aria-label="Navigation principale" className="flex items-center gap-6 text-sm text-ink-soft">
-              <a href="#confiance" className="hidden underline decoration-rule-strong underline-offset-4 transition-colors hover:text-ink sm:inline">
-                Cadre de confiance
-              </a>
-              <a href="#tarifs" className="underline decoration-gold underline-offset-4 transition-colors hover:text-ink">
-                Tarifs
-              </a>
-            </nav>
-          </div>
-        </header>
+        <SiteHeader onHome />
 
         <main>
           {/* ===== HERO =====
@@ -154,6 +146,27 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </section>
+
+          {/* ===== PAR USAGE =====
+              Audit SEO 26/10/2026 : les 3 pages métier n'étaient liées que
+              depuis le pied de page. Liens dans le corps, mêmes intitulés
+              que les pages, phrases résumant leur propre introduction. */}
+          <section className="mx-auto max-w-6xl px-safe pt-24 lg:pt-28" aria-labelledby="par-usage">
+            <ScrollReveal className="mb-10 max-w-xl">
+              <p className="letter-kicker mb-3 text-ink-faint">Par usage</p>
+              <h2 id="par-usage" className="text-display-lg font-display text-ink">Hector, selon ce que vous cherchez</h2>
+            </ScrollReveal>
+            <ul className="divide-y divide-rule border-y border-rule">
+              {USAGES.map((u) => (
+                <li key={u.href} className="grid gap-2 py-6 sm:grid-cols-12 sm:gap-8">
+                  <Link href={u.href} className="sm:col-span-4 font-medium leading-snug text-ink underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink">
+                    {u.label}
+                  </Link>
+                  <p className="sm:col-span-8 text-sm leading-relaxed text-ink-soft">{u.desc}</p>
+                </li>
+              ))}
+            </ul>
           </section>
 
           {/* ===== DOULEURS =====
@@ -308,20 +321,7 @@ export default function Home() {
           </section>
         </main>
 
-        <footer className="border-t border-rule">
-          <div className="mx-auto max-w-6xl px-safe py-6 text-xs text-ink-faint">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <span>© {new Date().getFullYear()} Hector</span>
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                <Link href="/assistant-ia-cgpi" className="transition-colors hover:text-ink">Assistant IA pour CGPI</Link>
-                <Link href="/automatisation-cabinet-cgp" className="transition-colors hover:text-ink">Automatisation cabinet CGP</Link>
-                <Link href="/bilan-patrimonial-ia" className="transition-colors hover:text-ink">Bilan patrimonial IA</Link>
-                <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>
-                <Link href="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );
