@@ -10,10 +10,12 @@ interface LegalShellProps {
   kicker: string;
   title: string;
   lead: string;
+  /** Date affichée « Dernière mise à jour », ex. « 26 octobre 2026 ». */
+  updated?: string;
   children: ReactNode;
 }
 
-export function LegalShell({ kicker, title, lead, children }: LegalShellProps) {
+export function LegalShell({ kicker, title, lead, updated, children }: LegalShellProps) {
   return (
     <div className="min-h-screen bg-paper">
       <SiteHeader />
@@ -25,6 +27,9 @@ export function LegalShell({ kicker, title, lead, children }: LegalShellProps) {
             <p className="letter-kicker mb-3 text-ink-faint">{kicker}</p>
             <h1 className="text-display-lg mb-4 font-display text-ink">{title}</h1>
             <p className="max-w-xl text-base leading-relaxed text-ink-soft">{lead}</p>
+            {updated ? (
+              <p className="mt-4 text-sm text-ink-faint">Dernière mise à jour : {updated}</p>
+            ) : null}
           </div>
         </section>
 
