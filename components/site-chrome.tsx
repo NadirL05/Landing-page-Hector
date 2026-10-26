@@ -46,6 +46,8 @@ export function SiteFooter() {
             <Link href="/bilan-patrimonial-ia" className="transition-colors hover:text-ink">Bilan patrimonial IA</Link>
             <Link href="/confidentialite" className="transition-colors hover:text-ink">RGPD</Link>
             <Link href="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
+            {/* Lien éditeur (audit SEO 26/10/2026 : aucun lien vers www.agentimpact.fr depuis Hector). */}
+            <a href="https://www.agentimpact.fr/" className="transition-colors hover:text-ink">Un produit AgentImpact</a>
           </div>
         </div>
       </div>
