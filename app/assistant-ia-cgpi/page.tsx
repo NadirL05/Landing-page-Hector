@@ -49,6 +49,33 @@ export default function AssistantIaCgpiPage() {
             <li>Préparation et transmission de bilans patrimoniaux illustratifs.</li>
           </ul>
         </section>
+        <section className="border-b border-rule py-10">
+          <h2 className="font-display text-2xl text-ink">Un assistant que l&apos;on pilote depuis WhatsApp</h2>
+          <p className="mt-5 leading-relaxed text-ink-soft">
+            Hector se pilote depuis WhatsApp, une interface que vous utilisez déjà : pas de nouveau tableau de bord à mémoriser, pas de formation longue. Vous lui envoyez un message comme à un collègue pour demander un bilan, une relance ou un rapprochement.
+          </p>
+          <p className="mt-5 leading-relaxed text-ink-soft">
+            Il vous rend ensuite le travail fini : une page de bilan interactive brandée à votre cabinet, une relance envoyée ou une anomalie signalée.
+          </p>
+        </section>
+        <section className="border-b border-rule py-10">
+          <h2 className="font-display text-2xl text-ink">Branché sur les outils du cabinet</h2>
+          <p className="mt-5 leading-relaxed text-ink-soft">
+            Hector se greffe sur vos outils existants, comme Harvest, Linxea ou tout autre logiciel de votre cabinet, sans migration ni lock-in. Il ne remplace pas votre logiciel : il ajoute une couche conversationnelle et proactive, avec relances automatiques, bilans et alertes.
+          </p>
+          <p className="mt-5 leading-relaxed text-ink-soft">
+            Chaque cabinet aura un accès isolé, sans mutualisation de données entre clients, avec un chiffrement au repos et en transit.
+          </p>
+        </section>
+        <section className="border-b border-rule py-10">
+          <h2 className="font-display text-2xl text-ink">Le conseil reste celui du CGPI</h2>
+          <p className="mt-5 leading-relaxed text-ink-soft">
+            Aucune décision d&apos;investissement n&apos;est automatisée. Hector consolide, alerte et prépare ; la décision reste toujours celle du CGPI, conformément au principe de non-substitution au conseil réglementé.
+          </p>
+          <p className="mt-5 leading-relaxed text-ink-soft">
+            Hector est en phase de construction, avec un nombre restreint de cabinets pilotes : la feuille de route se bâtit avec ces premiers utilisateurs.
+          </p>
+        </section>
         <div className="mt-10 flex flex-wrap gap-5 text-sm">
           <Link href="/" className="font-medium text-ink underline underline-offset-4">Découvrir Hector</Link>
           <Link href="/automatisation-cabinet-cgp" className="text-ink-soft underline underline-offset-4">Automatisation d&apos;un cabinet CGP</Link>
