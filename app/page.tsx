@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import softwareApplicationSchema from "@/public/schema/software-application.json";
 import organizationSchema from "@/public/schema/organization.json";
@@ -44,6 +45,12 @@ const ENJEUX = [
   { title: "Données dispersées entre outils", desc: "Custodiens, assureurs, logiciel interne : consolider manuellement prend du temps que vous n'avez pas." },
   { title: "Relances au fil de l'eau", desc: "Clause bénéficiaire à mettre à jour, document manquant, échéance d'arbitrage — ça se perd dans les agendas." },
   { title: "Temps d'expert perdu en surveillance", desc: "Vous êtes CGPI, pas opérateur de monitoring. La valeur que vous vendez, c'est le conseil, pas la veille." },
+] as const;
+
+const USAGES = [
+  { href: "/assistant-ia-cgpi", label: "Assistant IA pour CGPI", desc: "Suivi patrimonial, relances et livrables, demandés et reçus sur WhatsApp." },
+  { href: "/automatisation-cabinet-cgp", label: "Automatisation d'un cabinet CGP", desc: "Surveillance, relances et alertes, sans remplacer vos outils existants." },
+  { href: "/bilan-patrimonial-ia", label: "Bilan patrimonial avec l'IA", desc: "Du suivi consolidé au bilan prêt pour le rendez-vous client." },
 ] as const;
 
 const COMPARISON_ROWS = [
@@ -139,6 +146,27 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </section>
+
+          {/* ===== PAR USAGE =====
+              Audit SEO 26/10/2026 : les 3 pages métier n'étaient liées que
+              depuis le pied de page. Liens dans le corps, mêmes intitulés
+              que les pages, phrases résumant leur propre introduction. */}
+          <section className="mx-auto max-w-6xl px-safe pt-24 lg:pt-28" aria-labelledby="par-usage">
+            <ScrollReveal className="mb-10 max-w-xl">
+              <p className="letter-kicker mb-3 text-ink-faint">Par usage</p>
+              <h2 id="par-usage" className="text-display-lg font-display text-ink">Hector, selon ce que vous cherchez</h2>
+            </ScrollReveal>
+            <ul className="divide-y divide-rule border-y border-rule">
+              {USAGES.map((u) => (
+                <li key={u.href} className="grid gap-2 py-6 sm:grid-cols-12 sm:gap-8">
+                  <Link href={u.href} className="sm:col-span-4 font-medium leading-snug text-ink underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink">
+                    {u.label}
+                  </Link>
+                  <p className="sm:col-span-8 text-sm leading-relaxed text-ink-soft">{u.desc}</p>
+                </li>
+              ))}
+            </ul>
           </section>
 
           {/* ===== DOULEURS =====
