@@ -30,7 +30,7 @@ export default function MentionsLegalesPage() {
             <LegalRow label="Siège">61 rue de Lyon, 75012 Paris, France</LegalRow>
             <LegalRow label="SIREN">942 311 333</LegalRow>
             <LegalRow label="SIRET">942 311 333 00010 (établissement unique)</LegalRow>
-            <LegalRow label="TVA intracommunautaire">FR58942311333</LegalRow>
+            <LegalRow label="TVA">TVA non applicable, art. 293 B du CGI</LegalRow>
             <LegalRow label="Immatriculation">RCS Paris, le 21/03/2025</LegalRow>
             <LegalRow label="Code NAF / APE">
               7490B — Activités spécialisées, scientifiques et techniques diverses
