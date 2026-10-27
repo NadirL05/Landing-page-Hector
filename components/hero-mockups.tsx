@@ -1,4 +1,7 @@
 // Aperçus visuels du hero — conversation WhatsApp + bilan patrimonial.
+// Les réponses d'Hector reprennent les messages réels du produit
+// (patrimoine/apps/api/routers/messaging.py, _whatsapp_safe_reply) :
+// jamais de montant sur WhatsApp, seulement un lien sécurisé.
 // Toute donnée chiffrée ici est un exemple illustratif explicitement
 // labellisé, jamais une donnée client réelle (produit pas encore en ligne).
 //
@@ -8,11 +11,10 @@
 // sombre ni lueur, pour rester cohérent avec le canvas papier.
 
 const MESSAGES = [
-  { from: "cgp", text: "Hector, peux-tu préparer le bilan patrimonial de M. Dupont pour jeudi ?", time: "09:14" },
-  { from: "hector", text: "Bien sûr. Je consolide les données Harvest + Linxea. Le bilan sera prêt d'ici 20 minutes.", time: "09:14" },
-  { from: "hector", text: "Bilan prêt — AUM 1,2 M€ · 4 supports · rendement YTD +4,7 %\nhector.agentimpact.fr/bilans/dupont-2024", time: "09:31" },
-  { from: "cgp", text: "Parfait. Relance aussi pour la mise à jour de sa clause bénéficiaire.", time: "09:33" },
-  { from: "hector", text: "Noté. Je programme la relance pour lundi 9h. Je t'enverrai un résumé.", time: "09:33" },
+  { from: "cgp", text: "Hector, le bilan de M. Dupont stp.", time: "09:14" },
+  { from: "hector", text: "Pour des raisons de confidentialité, le bilan n'est pas affiché ici. Consultez-le via ce lien sécurisé (expirable) :\napp-hector.agentimpact.fr/s/…", time: "09:14" },
+  { from: "cgp", text: "Et les points d'attention ?", time: "09:15" },
+  { from: "hector", text: "Pour des raisons de confidentialité, les points d'attention ne sont pas affichés ici. Consultez-les dans Hector.", time: "09:15" },
 ] as const;
 
 export function WhatsAppMockup() {

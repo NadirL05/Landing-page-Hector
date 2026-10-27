@@ -7,13 +7,13 @@ import { OG_IMAGE } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Assistant IA pour CGPI",
   description:
-    "Hector aide les CGPI à automatiser le suivi patrimonial, les relances et la préparation de livrables sans ajouter un nouveau logiciel à piloter.",
+    "Hector aide les CGPI à suivre leur parc patrimonial et à préparer bilans et brouillons de relance, sans ajouter un nouveau logiciel à piloter.",
   alternates: { canonical: "/assistant-ia-cgpi" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Assistant IA pour CGPI | Hector",
     description:
-      "Hector aide les CGPI à automatiser le suivi patrimonial, les relances et la préparation de livrables sans ajouter un nouveau logiciel à piloter.",
+      "Hector aide les CGPI à suivre leur parc patrimonial et à préparer bilans et brouillons de relance, sans ajouter un nouveau logiciel à piloter.",
     url: "https://hector.agentimpact.fr/assistant-ia-cgpi",
     siteName: "Hector",
     locale: "fr_FR",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Assistant IA pour CGPI | Hector",
     description:
-      "Automatisez suivi patrimonial, relances et préparation de livrables avec Hector.",
+      "Suivi patrimonial, bilans et brouillons de relance préparés avec Hector.",
     images: [{ url: OG_IMAGE.url, alt: OG_IMAGE.alt }],
   },
 };
@@ -38,30 +38,30 @@ export default function AssistantIaCgpiPage() {
         <p className="letter-kicker mb-4 text-ink-faint">Hector pour les CGPI</p>
         <h1 className="text-display-lg font-display text-ink">Assistant IA pour CGPI</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-          Hector se connecte à la stack de votre cabinet pour centraliser le suivi patrimonial,
-          préparer les relances et vous transmettre des livrables exploitables, notamment via WhatsApp.
+          Hector part des données de votre cabinet pour centraliser le suivi patrimonial,
+          préparer des brouillons de relance et vous transmettre des bilans exploitables. Un bilan se demande aussi sur WhatsApp.
         </p>
         <section className="mt-14 border-y border-rule py-10">
           <h2 className="font-display text-2xl text-ink">Ce qu&apos;Hector automatise</h2>
           <ul className="mt-6 space-y-4 text-ink-soft">
             <li>Suivi d&apos;un parc d&apos;actifs patrimoniaux et détection d&apos;anomalies.</li>
-            <li>Relances et rappels sur les tâches répétitives du cabinet.</li>
+            <li>Brouillons de relance pour les pièces manquantes, que vous relisez et envoyez vous-même.</li>
             <li>Préparation et transmission de bilans patrimoniaux illustratifs.</li>
           </ul>
         </section>
         <section className="border-b border-rule py-10">
-          <h2 className="font-display text-2xl text-ink">Un assistant que l&apos;on pilote depuis WhatsApp</h2>
+          <h2 className="font-display text-2xl text-ink">Un bilan demandé depuis WhatsApp</h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Hector se pilote depuis WhatsApp, une interface que vous utilisez déjà : pas de nouveau tableau de bord à mémoriser, pas de formation longue. Vous lui envoyez un message comme à un collègue pour demander un bilan, une relance ou un rapprochement.
+            Pour obtenir un bilan, pas besoin d&apos;ouvrir un nouveau tableau de bord : vous envoyez un message à Hector sur WhatsApp, une interface que vous utilisez déjà, comme à un collègue. Il vous répond par un lien sécurisé vers le bilan, sans aucun montant dans la conversation.
           </p>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Il vous rend ensuite le travail fini : une page de bilan interactive brandée à votre cabinet, une relance envoyée ou une anomalie signalée.
+            Le reste du travail vous attend dans l&apos;application : une page de bilan interactive brandée à votre cabinet, des brouillons de relance prêts à relire et à envoyer, et les points d&apos;attention signalés.
           </p>
         </section>
         <section className="border-b border-rule py-10">
           <h2 className="font-display text-2xl text-ink">Branché sur les outils du cabinet</h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Hector se greffe sur vos outils existants, comme Harvest, Linxea ou tout autre logiciel de votre cabinet, sans migration ni lock-in. Il ne remplace pas votre logiciel : il ajoute une couche conversationnelle et proactive, avec relances automatiques, bilans et alertes.
+            Hector part de vos données existantes : import de fichiers CSV ou Excel, connexion HubSpot, agrégation bancaire. Pas de migration ni de lock-in. Il ne remplace pas votre logiciel : il ajoute une couche proactive, avec brouillons de relance, bilans et points d&apos;attention.
           </p>
           <p className="mt-5 leading-relaxed text-ink-soft">
             Chaque cabinet aura un accès isolé, sans mutualisation de données entre clients, avec un chiffrement au repos et en transit.

@@ -17,7 +17,7 @@ const PILLARS = [
   },
   {
     title: "Cloisonnement strict par cabinet",
-    desc: "Chaque cabinet aura un accès isolé, sans mutualisation de données entre clients. Chiffrement au repos et en transit, hébergement prévu en Union européenne.",
+    desc: "Chaque cabinet aura un accès isolé, sans mutualisation de données entre clients. Chiffrement au repos et en transit.",
   },
   {
     title: "Transparence sur l'état du produit",

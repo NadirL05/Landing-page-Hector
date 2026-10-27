@@ -51,7 +51,7 @@ export default function BilanPatrimonialIaPage() {
         <section className="border-b border-rule py-10">
           <h2 className="font-display text-2xl text-ink">Un bilan demandé et reçu sur WhatsApp</h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Vous demandez un bilan à Hector par message, sur WhatsApp. Il vous rend une page de bilan interactive brandée à votre cabinet, plutôt qu&apos;un PDF figé.
+            Vous demandez un bilan à Hector par message, sur WhatsApp. Il vous répond par un lien sécurisé, sans aucun montant dans la conversation, vers une page de bilan interactive brandée à votre cabinet, plutôt qu&apos;un PDF figé.
           </p>
           <p className="mt-5 leading-relaxed text-ink-soft">
             Ce livrable peut devenir un argument commercial : c&apos;est le document que vos clients montrent à leur entourage.
@@ -60,7 +60,7 @@ export default function BilanPatrimonialIaPage() {
         <section className="border-b border-rule py-10">
           <h2 className="font-display text-2xl text-ink">Des données consolidées avant le rendez-vous</h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Les données d&apos;un client sont souvent dispersées entre custodiens, assureurs et logiciel interne, et les consolider à la main prend du temps. Hector consolide le suivi d&apos;un parc d&apos;actifs patrimoniaux à partir des outils déjà en place, comme Harvest ou Linxea, sans migration.
+            Les données d&apos;un client sont souvent dispersées entre custodiens, assureurs et logiciel interne, et les consolider à la main prend du temps. Hector consolide le suivi d&apos;un parc d&apos;actifs patrimoniaux à partir des données déjà en place (import de fichiers CSV ou Excel, connexion HubSpot, agrégation bancaire), sans migration.
           </p>
           <p className="mt-5 leading-relaxed text-ink-soft">
             Un modèle de langage lit et classe les documents entrants.

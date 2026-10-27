@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Hector",
   },
   description:
-    "Hector consolide le suivi patrimonial de votre cabinet, déclenche relances et rapprochements, et vous rend le travail fini — sur WhatsApp.",
+    "Hector consolide le suivi patrimonial de votre cabinet, signale les points d'attention et prépare bilans et brouillons de relance. Demandez un bilan sur WhatsApp.",
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },

@@ -1,6 +1,6 @@
 # Hector
 
-> Collaborateur IA pour cabinets de gestion de patrimoine indépendants (CGPI). Se connecte à la stack existante du cabinet (Harvest, Linxea, ou tout autre logiciel), se pilote depuis WhatsApp, et livre le travail fini plutôt qu'un outil de plus à opérer.
+> Collaborateur IA pour cabinets de gestion de patrimoine indépendants (CGPI). Part des données existantes du cabinet (import de fichiers CSV ou Excel, connexion HubSpot, agrégation bancaire), répond aux demandes de bilan sur WhatsApp par un lien sécurisé, et prépare le travail plutôt qu'ajouter un outil de plus à opérer.
 
 ## Statut
 
@@ -12,9 +12,9 @@ CGPI indépendants (cabinets de gestion de patrimoine).
 
 ## Ce que fait Hector
 
-- Connecter : se greffe sur les outils existants du cabinet, aucune migration, aucun lock-in.
-- Discuter : pilotage conversationnel via WhatsApp, comme avec un collègue.
-- Recevoir : livrables finis — bilan patrimonial interactif brandé au cabinet, relance envoyée, anomalie signalée.
+- Connecter : part des données existantes du cabinet (import de fichiers CSV ou Excel, connexion HubSpot, agrégation bancaire), aucune migration, aucun lock-in.
+- Discuter : demande de bilan par message sur WhatsApp, réponse par lien sécurisé, sans montant dans la conversation.
+- Recevoir : bilan patrimonial interactif brandé au cabinet, brouillons de relance que le conseiller relit et envoie lui-même, points d'attention signalés dans l'application.
 
 ## Ce qu'Hector ne fait jamais
 
