@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Hector — collaborateur IA pour CGPI",
     short_name: "Hector",
     description:
-      "Hector consolide le suivi patrimonial d'un cabinet de gestion de patrimoine, déclenche relances et rapprochements, et livre le travail fini via WhatsApp.",
+      "Hector consolide le suivi patrimonial d'un cabinet de gestion de patrimoine, signale les points d'attention, prépare les bilans et les brouillons de relance, et répond aux demandes de bilan sur WhatsApp par un lien sécurisé.",
     start_url: "/",
     display: "standalone",
     background_color: "#FDFBF7",

@@ -35,9 +35,9 @@ const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30min";
 // patrimoine/apps/api/routers/billing.py.
 
 const STEPS = [
-  { n: "I", label: "Connecter", desc: "Hector se greffe sur vos outils existants — Harvest, Linxea, ou tout autre logiciel de votre cabinet. Aucune migration, aucun lock-in." },
-  { n: "II", label: "Discuter", desc: "Envoyez-lui un message sur WhatsApp comme à un collègue. Demandez un bilan, une relance, un rapprochement." },
-  { n: "III", label: "Recevoir", desc: "Il vous rend le travail fini : page de bilan interactive brandée à votre cabinet, relance envoyée, anomalie signalée." },
+  { n: "I", label: "Connecter", desc: "Hector part de vos données existantes : import de fichiers CSV ou Excel, connexion HubSpot, agrégation bancaire. Aucune migration, aucun lock-in." },
+  { n: "II", label: "Discuter", desc: "Envoyez-lui un message sur WhatsApp comme à un collègue pour demander un bilan. Il vous répond par un lien sécurisé, sans aucun montant dans la conversation." },
+  { n: "III", label: "Recevoir", desc: "Il vous rend le travail préparé : page de bilan interactive brandée à votre cabinet, brouillons de relance à relire et envoyer vous-même, points d'attention signalés dans l'application." },
 ] as const;
 
 const ENJEUX = [
@@ -48,8 +48,8 @@ const ENJEUX = [
 ] as const;
 
 const USAGES = [
-  { href: "/assistant-ia-cgpi", label: "Assistant IA pour CGPI", desc: "Suivi patrimonial, relances et livrables, demandés et reçus sur WhatsApp." },
-  { href: "/automatisation-cabinet-cgp", label: "Automatisation d'un cabinet CGP", desc: "Surveillance, relances et alertes, sans remplacer vos outils existants." },
+  { href: "/assistant-ia-cgpi", label: "Assistant IA pour CGPI", desc: "Suivi patrimonial, bilans et brouillons de relance, avec la demande de bilan sur WhatsApp." },
+  { href: "/automatisation-cabinet-cgp", label: "Automatisation d'un cabinet CGP", desc: "Surveillance, brouillons de relance et points d'attention, sans remplacer vos outils existants." },
   { href: "/bilan-patrimonial-ia", label: "Bilan patrimonial avec l'IA", desc: "Du suivi consolidé au bilan prêt pour le rendez-vous client." },
 ] as const;
 
@@ -57,7 +57,7 @@ const COMPARISON_ROWS = [
   { label: "Modèle", hector: "collaborateur qui fait le travail", classique: "logiciel à opérer soi-même", gpt: "assistant qui répond, ne fait rien" },
   { label: "Livrable", hector: "page interactive brandée", classique: "PDF morts", gpt: "du texte" },
   { label: "Connexion stack", hector: "se greffe sur l'existant", classique: "remplace / lock-in", gpt: "aucune" },
-  { label: "Conversationnel", hector: "oui — WhatsApp", classique: "copilote limité / non", gpt: "oui mais hors métier" },
+  { label: "Conversationnel", hector: "oui, sur WhatsApp", classique: "copilote limité / non", gpt: "oui mais hors métier" },
   { label: "Décision d'investissement", hector: "jamais (prépare, vous validez)", classique: "—", gpt: "risque hallucination" },
 ] as const;
 
@@ -106,20 +106,20 @@ export default function Home() {
                     </a>
                   </div>
                   <p className="mt-12 max-w-md border-t border-rule pt-6 text-sm leading-relaxed text-ink-faint">
-                    Hector consolide automatiquement le suivi d&apos;un parc d&apos;actifs patrimoniaux, déclenche relances et alertes, et vous transmet chaque livrable via WhatsApp.
+                    Hector consolide le suivi d&apos;un parc d&apos;actifs patrimoniaux, signale les points d&apos;attention, prépare les brouillons de relance et répond à vos demandes de bilan sur WhatsApp par un lien sécurisé.
                   </p>
                 </div>
                 <div className="lg:col-span-5">
                   <figure className="border border-rule bg-paper-alt p-4">
                     <BilanApercu />
                     <figcaption className="mt-3 border-t border-rule pt-3 text-xs text-ink-faint">
-                      Fig. 1 — Bilan patrimonial reçu sur WhatsApp. Exemple illustratif.
+                      Fig. 1 : Bilan patrimonial ouvert depuis le lien sécurisé reçu sur WhatsApp. Exemple illustratif.
                     </figcaption>
                   </figure>
                   <figure className="mt-6 border border-rule bg-paper-alt p-4">
                     <WhatsAppMockup />
                     <figcaption className="mt-3 border-t border-rule pt-3 text-xs text-ink-faint">
-                      Fig. 2 — Échange avec Hector. Exemple illustratif.
+                      Fig. 2 : Échange avec Hector sur WhatsApp. Exemple illustratif.
                     </figcaption>
                   </figure>
                 </div>
@@ -210,9 +210,9 @@ export default function Home() {
                 </ScrollReveal>
                 <ScrollReveal delayMs={80} className="bg-paper p-10">
                   <p className="footnote-mark mb-3 font-display text-sm text-ink-faint">2</p>
-                  <h3 className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Le répétitif tourne seul</h3>
+                  <h3 className="mb-4 font-display text-2xl leading-tight text-ink lg:text-3xl">Le répétitif est préparé pour vous</h3>
                   <p className="leading-relaxed text-ink-soft">
-                    Surveillance des portefeuilles, relances automatiques, alertes d&apos;anomalie — Hector s&apos;en occupe pendant que vous conseillez. Moins de charge mentale, plus de disponibilité pour vos clients.
+                    Surveillance des portefeuilles, brouillons de relance, points d&apos;attention signalés : Hector prépare pendant que vous conseillez, vous relisez et vous envoyez. Moins de charge mentale, plus de disponibilité pour vos clients.
                   </p>
                   <p className="mt-6 border-t border-rule pt-4 text-sm font-medium text-ink-faint">Temps et sérénité</p>
                 </ScrollReveal>

@@ -10,15 +10,15 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 const FAQS = [
   {
     q: "Encore un outil à apprendre ?",
-    a: "Non — Hector se pilote depuis WhatsApp, une interface que vous utilisez déjà. Pas de nouveau dashboard à mémoriser, pas de formation longue : vous lui parlez comme à un collaborateur.",
+    a: "Non. Pour obtenir un bilan, il suffit d'envoyer un message à Hector sur WhatsApp, une interface que vous utilisez déjà : il vous répond par un lien sécurisé, sans aucun montant dans la conversation. Le suivi, les brouillons de relance et les points d'attention se retrouvent dans l'application Hector.",
   },
   {
     q: "Mes données sont sensibles, comment sont-elles protégées ?",
-    a: "Hector se connecte à votre stack existante sans dupliquer vos données dans un nouveau silo. Chaque cabinet dispose d'un accès isolé, sans mutualisation de données entre clients : ce que voit un cabinet reste strictement le sien. Les données sont chiffrées au repos et en transit, avec un hébergement prévu en Union européenne — cohérent avec les exigences d'un secteur réglementé. Surtout, aucune décision d'investissement n'est jamais prise automatiquement : Hector consolide, alerte et prépare le travail, mais la décision reste toujours celle du CGPI, conformément au principe de non-substitution au conseil réglementé.",
+    a: "Chaque cabinet dispose d'un accès isolé, sans mutualisation de données entre clients : ce que voit un cabinet reste strictement le sien. Les données sont chiffrées au repos et en transit. Surtout, aucune décision d'investissement n'est jamais prise automatiquement : Hector consolide, alerte et prépare le travail, mais la décision reste toujours celle du CGPI, conformément au principe de non-substitution au conseil réglementé.",
   },
   {
-    q: "J'ai déjà Harvest, à quoi bon Hector ?",
-    a: "Hector ne remplace pas Harvest, il se branche dessus. Il ajoute la couche conversationnelle et proactive : relances automatiques, bilans instantanés, alertes — ce que votre logiciel actuel ne fait pas seul.",
+    q: "J'ai déjà un logiciel de cabinet, à quoi bon Hector ?",
+    a: "Hector ne remplace pas votre logiciel. Il part de vos données existantes (import de fichiers CSV ou Excel, connexion HubSpot, agrégation bancaire) et ajoute une couche proactive : bilans interactifs, brouillons de relance que vous relisez et envoyez vous-même, points d'attention signalés dans l'application.",
   },
   {
     q: "Hector est-il déjà disponible ?",

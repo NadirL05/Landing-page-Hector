@@ -2,6 +2,18 @@
 
 Journal des changements SEO, du plus récent au plus ancien. Chaque entrée renvoie à l'audit qui la justifie et dit comment la vérifier.
 
+## 2026-10-27 : site aligné sur ce que fait vraiment Hector
+
+Source : comparaison du site avec le code du dépôt `NadirL05/patrimoine`, confirmation de Nadir du 27/10/2026 sur WhatsApp. Branche `fix/site-aligne-produit`.
+
+| Changement | Fichiers | Vérification |
+|---|---|---|
+| Harvest et Linxea retirés (absents du code, seulement cités comme pistes futures dans `apps/api/pipeline/crm/base.py`). Remplacés par les sources réellement codées : import CSV ou Excel (`routers/crm.py`, `routers/imports.py`), connexion HubSpot (`pipeline/crm/hubspot_adapter.py`), agrégation bancaire (`pipeline/connectors/powens_client.py`). | accueil, 3 pages métier, FAQ (visible et JSON-LD), `llms.txt`, Agent Skill (digest recalculé), maquette WhatsApp | grep « Harvest » et « Linxea » sans résultat dans `app`, `components`, `public` |
+| « Relances automatiques » et « relance envoyée » remplacées par des brouillons de relance que le conseiller relit et envoie lui-même (`routers/collection_requests.py` : aucun envoi automatique). | idem | grep « relances automatiques » sans résultat |
+| WhatsApp limité à ce que fait le produit : demande de bilan, réponse par lien sécurisé sans montant (`routers/messaging.py`, `_whatsapp_safe_reply`). Les points d'attention sont signalés dans l'application. « Rapprochement » demandé sur WhatsApp retiré. Maquette WhatsApp réécrite avec les messages réels du produit (plus de montant, plus de relance programmée). | idem, `components/hero-mockups.tsx`, `app/layout.tsx`, `app/manifest.ts`, `public/schema/software-application.json`, carte MCP | relecture de Nadir |
+| « Hébergement prévu en Union européenne » retiré : aucune région UE n'est fixée dans le code (`config.py`, régions vides par défaut ; audit `04-conformite-reglementaire.md`). | `components/trust-section.tsx`, FAQ (visible et JSON-LD) | grep « Union européenne » sans résultat hors pages légales |
+| lastmod de l'accueil et des pages métier au 2026-10-27 | `app/sitemap.ts` | `/sitemap.xml` |
+
 ## 2026-10-26 (bis) — Corrections de la QA SEO du 26/10/2026 (relais 20)
 
 Source : `20_qa_apres_correction.md` (QA adversariale après mise en production), corrections 1 (tarifs uniquement), 2, 4 et 8 de la liste. Branche `fix/qa2-seo`.

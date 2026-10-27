@@ -10,11 +10,12 @@ import type { MetadataRoute } from "next";
 // de l'application décrits d'après le code du produit).
 const LEGAL_PAGES_UPDATE = new Date("2026-10-26");
 // Pages métier étoffées (en-tête, pied de page, contenu) le 26/10/2026,
-// puis phrases non sourcées retirées le même jour (QA SEO, relais 20).
-const TOPIC_PAGES_UPDATE = new Date("2026-10-26");
+// puis phrases non sourcées retirées le même jour (QA SEO, relais 20),
+// puis alignées sur le produit le 27/10/2026 (intégrations, relances, WhatsApp).
+const TOPIC_PAGES_UPDATE = new Date("2026-10-27");
 // Accueil : section « Par usage », en-tête et pied de page modifiés le
-// 26/10/2026 (PR #20).
-const HOME_UPDATE = new Date("2026-10-26");
+// 26/10/2026 (PR #20), textes alignés sur le produit le 27/10/2026.
+const HOME_UPDATE = new Date("2026-10-27");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

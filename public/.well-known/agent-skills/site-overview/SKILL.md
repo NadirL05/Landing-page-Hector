@@ -4,7 +4,7 @@ Description destinée aux agents IA qui visitent hector.agentimpact.fr, pour sit
 
 ## Ce qu'est Hector
 
-Un collaborateur IA pour cabinets de gestion de patrimoine indépendants (CGPI). Il se connecte à la stack existante du cabinet (Harvest, Linxea, ou tout autre logiciel), se pilote par conversation sur WhatsApp, et livre le travail fini plutôt qu'un tableau de bord de plus à opérer : bilan patrimonial interactif brandé au cabinet, relance envoyée, anomalie signalée.
+Un collaborateur IA pour cabinets de gestion de patrimoine indépendants (CGPI). Il part des données existantes du cabinet (import de fichiers CSV ou Excel, connexion HubSpot, agrégation bancaire), répond aux demandes de bilan sur WhatsApp par un lien sécurisé (sans montant dans la conversation), et prépare le travail plutôt qu'ajouter un tableau de bord de plus à opérer : bilan patrimonial interactif brandé au cabinet, brouillons de relance que le conseiller relit et envoie lui-même, points d'attention signalés dans l'application.
 
 ## Ce que ce site est — et n'est pas
 

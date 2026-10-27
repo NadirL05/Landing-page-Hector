@@ -7,13 +7,13 @@ import { OG_IMAGE } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Automatisation d'un cabinet CGP",
   description:
-    "Automatisez les tâches répétitives d'un cabinet de gestion de patrimoine avec Hector : suivi, relances, alertes et préparation de livrables.",
+    "Allégez les tâches répétitives d'un cabinet de gestion de patrimoine avec Hector : suivi, points d'attention, brouillons de relance et préparation de livrables.",
   alternates: { canonical: "/automatisation-cabinet-cgp" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Automatisation d'un cabinet CGP | Hector",
     description:
-      "Automatisez les tâches répétitives d'un cabinet de gestion de patrimoine avec Hector : suivi, relances, alertes et préparation de livrables.",
+      "Allégez les tâches répétitives d'un cabinet de gestion de patrimoine avec Hector : suivi, points d'attention, brouillons de relance et préparation de livrables.",
     url: "https://hector.agentimpact.fr/automatisation-cabinet-cgp",
     siteName: "Hector",
     locale: "fr_FR",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Automatisation d'un cabinet CGP | Hector",
     description:
-      "Suivi, relances, alertes et préparation de livrables pour les cabinets CGP.",
+      "Suivi, points d'attention, brouillons de relance et livrables pour les cabinets CGP.",
     images: [{ url: OG_IMAGE.url, alt: OG_IMAGE.alt }],
   },
 };
@@ -39,7 +39,7 @@ export default function AutomatisationCabinetCgpPage() {
         <h1 className="text-display-lg font-display text-ink">Automatisation d&apos;un cabinet CGP</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
           Hector automatise une partie du travail répétitif sans remplacer vos outils existants :
-          surveillance, relances, alertes et préparation de livrables pour vous laisser davantage de temps de conseil.
+          surveillance, points d&apos;attention, brouillons de relance et préparation de livrables pour vous laisser davantage de temps de conseil.
         </p>
         <section className="mt-14 border-y border-rule py-10">
           <h2 className="font-display text-2xl text-ink">Une automatisation intégrée à votre stack</h2>
@@ -60,7 +60,7 @@ export default function AutomatisationCabinetCgpPage() {
         <section className="border-b border-rule py-10">
           <h2 className="font-display text-2xl text-ink">La décision reste au conseiller</h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
-            Hector traite les tâches récurrentes et prépare le dossier. Aucune décision d&apos;investissement n&apos;est automatisée. Le conseil, la relation client et les arbitrages restent les vôtres.
+            Hector traite les tâches récurrentes et prépare le dossier. Les relances sont préparées en brouillon : c&apos;est vous qui les relisez et les envoyez. Aucune décision d&apos;investissement n&apos;est automatisée. Le conseil, la relation client et les arbitrages restent les vôtres.
           </p>
         </section>
         <div className="mt-10 flex flex-wrap gap-5 text-sm">

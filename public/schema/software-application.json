@@ -6,7 +6,7 @@
   "applicationCategory": "BusinessApplication",
   "applicationSubCategory": "Collaborateur IA pour CGPI",
   "operatingSystem": "Web",
-  "description": "Hector consolide le suivi patrimonial d'un cabinet de gestion de patrimoine, déclenche relances et rapprochements, et livre le travail fini via WhatsApp.",
+  "description": "Hector consolide le suivi patrimonial d'un cabinet de gestion de patrimoine, signale les points d'attention, prépare les bilans et les brouillons de relance, et répond aux demandes de bilan sur WhatsApp par un lien sécurisé.",
   "inLanguage": "fr",
   "publisher": {
     "@type": "Organization",
