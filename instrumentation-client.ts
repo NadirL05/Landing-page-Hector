@@ -2,10 +2,12 @@
 // The added config here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
+import { publicSentryDsn } from "./lib/public-sentry";
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
-  dsn: "https://9fc4b176ce126b6f4ccfc67fe887dd01@o4510546774327296.ingest.de.sentry.io/4511971817947216",
+  dsn: publicSentryDsn,
+  tunnel: process.env.NEXT_PUBLIC_WORKERS_EXPORT === "1" ? "/monitoring" : undefined,
   integrations: [Sentry.replayIntegration()],
   tracesSampleRate: 1,
   enableLogs: true,

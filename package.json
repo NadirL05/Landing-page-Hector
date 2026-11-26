@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seo:check": "node scripts/seo-check.mjs"
+    "seo:check": "node scripts/seo-check.mjs",
+    "build:worker": "NEXT_PUBLIC_WORKERS_EXPORT=1 next build && node scripts/worker-assets.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^9.7.0",
@@ -26,6 +27,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "4.168.0"
   }
 }

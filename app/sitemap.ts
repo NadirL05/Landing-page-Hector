@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 // Landing + pages légales : les ancres (#confiance, #tarifs) ne sont pas
 // des routes distinctes et ne doivent pas apparaître dans le sitemap.
 //
