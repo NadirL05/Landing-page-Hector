@@ -2,8 +2,8 @@
   "name": "hector-vitrine",
   "main": "worker/monitoring.ts",
   "compatibility_date": "2026-11-20",
-  "workers_dev": false,
-  "preview_urls": true,
+  "workers_dev": true,
+  "preview_urls": false,
   "assets": {
     "binding": "ASSETS",
     "directory": "./out",
