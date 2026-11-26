@@ -49,7 +49,10 @@ const SECURITY_HEADERS = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
 ];
 
+const workerBuild = process.env.NEXT_PUBLIC_WORKERS_EXPORT === "1";
+
 const nextConfig: NextConfig = {
+  output: workerBuild ? "export" : undefined,
   async headers() {
     return [
       {
@@ -80,7 +83,7 @@ export default withSentryConfig(nextConfig, {
   project: "landing-hector",
   silent: !process.env.CI,
   widenClientFileUpload: true,
-  tunnelRoute: "/monitoring",
+  tunnelRoute: workerBuild ? undefined : "/monitoring",
   webpack: {
     automaticVercelMonitors: true,
     treeshake: { removeDebugLogging: true },

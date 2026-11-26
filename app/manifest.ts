@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 // Audit SEO/GEO 24/08 : icon-512.png existait dans public/ mais n'était
 // référencé nulle part (ni metadata.icons, ni manifest) — asset orphelin.
 // Convention Next.js native : ce fichier généra /manifest.webmanifest
